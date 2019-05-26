@@ -28,7 +28,7 @@
         <p class="lead">Seems you're looking for something that doesn't exist.</p>
         <br>
         <button class="btn btn-secondary w-150 mr-2" type="button" onclick="window.history.back();">Go back</button>
-        <a class="btn btn-secondary w-150" href="../index.html">Return Home</a>
+        <a class="btn btn-secondary w-150" href="/">Return Home</a>
 
       </section>
     </main><!-- /.main-content -->

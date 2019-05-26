@@ -1,0 +1,98 @@
+[   
+    {
+        "title": "General",
+        "url": null,
+        "children":[
+            {
+                "title": "run",
+                "url": "/run"
+            },
+            {
+                "title": "version",
+                "url": "/version"
+            },
+            {
+                "title": "generate helloworld",
+                "url": "/generate-helloworld"
+            },
+            {
+                "title": "generate blueprint",
+                "url": "/generate-blueprint"
+            }
+        ]
+    },
+    {
+        "title": "Data Manager",
+        "url": null,
+        "children":[
+            {
+                "title": "generate datamanager:insert",
+                "url": "/generate-datamanager-insert"
+            },
+            {
+                "title": "generate datamanager:read",
+                "url": "/generate-datamanager-read"
+            },
+            {
+                "title": "generate datamanager:update",
+                "url": "/generate-datamanager-update"
+            },
+            {
+                "title": "generate datamanager:delete",
+                "url": "/generate-datamanager-delete"
+            },
+            {
+                "title": "generate schema:entity",
+                "url": "/generate-schema-entity"
+            },
+            {
+                "title": "generate schema:field",
+                "url": "/generate-schema-field"
+            },
+            {
+                "title": "generate schema:ref",
+                "url": "/generate-schema-ref"
+            },
+            {
+                "title": "generate queryexecutor",
+                "url": "/generate-queryexecutor"
+            },
+            {
+                "title": "create:schema",
+                "url": "/create-schema"
+            }
+        ]
+    },
+    {
+        "title": "Simple Auth",
+        "url": null,
+        "children":[
+            {
+                "title": "simple-auth-authorizer",
+                "url": "/simple-auth-authorizer"
+            },
+            {
+                "title": "simple-auth-login",
+                "url": "/simple-auth-login"
+            },
+            {
+                "title": "simple-auth-register",
+                "url": "/simple-auth-register"
+            },
+            {
+                "title": "simple-auth-resetpassword",
+                "url": "/simple-auth-resetpassword"
+            }
+        ]
+    },    
+    {
+        "title": "Scripting",
+        "url": null,
+        "children":[
+            {
+                "title": "generate script:default",
+                "url": "/generate-script-default"
+            }
+        ]
+    }
+]
