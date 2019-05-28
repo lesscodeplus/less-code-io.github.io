@@ -59,19 +59,26 @@
             </li>
 
             <li class="nav-item">
+              <a class="nav-link" href="tutorials">Tutorials</a>
+            </li>
+
+            <!-- <li class="nav-item">
               <a class="nav-link" href="doc">Documentation <span class="arrow"></span></a>
               <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="atoms">General</a>
+                  <a class="nav-link" href="doc">General</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="tutorials">Tutorials</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="atoms">Atoms</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="commands">Commands</a>
+                  <a class="nav-link" href="commands">CLI Commands</a>
                 </li>
               </ul>
-            </li>
+            </li> -->
 
             <li class="nav-item">
               <a class="nav-link" href="download">Download</a>
@@ -96,8 +103,8 @@
           <div class="col-md-9">
             <div class="nav justify-content-center justify-content-md-start">
               <a class="nav-link" href="/">Home</a>
-              <a class="nav-link" href="doc">Docs</a>
-              <a class="nav-link" href="changelog">Changelog</a>
+              <a class="nav-link" href="tutorials">Tutorials</a>
+              <!-- <a class="nav-link" href="changelog">Changelog</a> -->
               <!-- <a class="nav-link" href="https://themeforest.net/item/thedocs-online-documentation-template/13070884?license=regular&open_purchase_for_item_id=13070884&purchasable=source&ref=thethemeio">Purchase</a> -->
             </div>
           </div>

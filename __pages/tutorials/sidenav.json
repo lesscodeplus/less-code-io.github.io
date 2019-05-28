@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Generating data driven APIs",
+        "url": "/datamanager"
+    },
+    {
+        "title": "Securing your APIs",
+        "url": "/simpleauth"
+    },
+    {
+        "title": "Scripting with Python",
+        "url": "/pythonscripting"
+    }
+]

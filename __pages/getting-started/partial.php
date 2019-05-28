@@ -40,23 +40,86 @@
               <p>
                 Less-code APIs are built on 'blueprints' which is a YAML file that defines all your endpoints, database schemas, and how each endpoint works. Using less-code CLI scaffolding you can easily add various elements to your blueprint.
               </p>
-              <p><mark class="small">1. Create a blueprint</mark><br>
-                You can create a blueprint using the command <code>lesscode generate blueprint</code>. Next you have to enter the auther name, and the version of the API. This will create a default blueprint.yml file. 
-                
+              <p>
+                <br/>
+                <h5>1. Create a blueprint</h5>
+                <p>You can create a blueprint using the command</p>
+                <pre>
+<code class="language-bash">
+$ lesscode generate blueprint
+</code>
+</pre>
+                <p>Then less-code will ask you to enter, a name for the app, the author and a version. For this example you can use "helloworld", "awesome developer" and "1.0" as the values.</p>
+                <p>This will create a new file called blueprint.yml with the following contents;</p>
+<pre>
+<code class="language-yaml">
+appName: "helloworld"
+author : "awesome developer"
+version: "1.0"
+</code>
+</pre>
               </p>
-              <p><mark class="small">2. Create a hello world endpoint</mark><br>
-                To create a hello world endpoint, use the command <code>lesscode generate view:helloworld</code>.
+              <p>
+                <br/>
+                <h5>2. Create a hello world endpoint</h5>
+                <p>To create a hello world endpoint, use the command</p> 
+<pre>
+<code class="language-bash">
+$ lesscode generate view:helloworld
+</code>
+</pre>
+
+                <p>Next the cli will ask for a name to print a greeting message. You can use the default value "awesome less-code developer" and continue.</p>
+                <p>Less-code will add the following lines to the blueprint with the route GET '/helloworld'</p>
+<pre>
+<code class="language-yaml">
+events:
+    http:
+        helloWorld:
+            route: /helloworld
+            method: GET
+            urn: helloworld
+            config:
+                name: "awesome less-code developer"
+</code>
+</pre>
+
+                <p>Less-code is based on a concept known as an atoms. Using the blueprint, you can add various behaviors for atoms and configure those behaviors. Each and every atom has a urn to uniquely identify them (in this example the urn is 'helloworld')</p>
+                <p>Using a atom urn you can create an atom instance, and listen to various events that occur in less-code (in this example the 'helloWorld' atom instance listens to http events)</p>
+                <p>Each atom instance can also be configured under the 'config' section of the instance.</p>
               </p>
-              <p><mark class="small">3. Test the endpoint</mark><br>
-              To test the endpoints run the command <code>lesscode run</code>.
+              <p>
+              <br/>
+              <h5>3. Test the endpoint</h5>
+              <p>To test the endpoints run the command</p> 
+<pre>
+<code class="language-bash">
+$ lesscode run
+</code>
+</pre>
+              <p>By default less code listens on port 5000. To test the endpoint you can use the command</p> 
+<pre>
+<code class="language-bash">
+$ curl "http://localhost:5000/helloworld"
+</code>
+</pre>
+              <p>The endpoint will respond with the following output;</p>
+<pre>
+<code class="language-json">
+{
+    "success": true,
+    "response": "Hello, awesome less-code developer!. Welcome to the awesome journey of less-code.io!!!",
+    "error": null,
+    "message": null
+}
+</code>
+</pre>
 
               <hr class="hr-dash my-7">
               
-              <h4 id="dist">Checkout more advanced features</h4>
-              <p>
-                Less-code.io is designed for enterprise grade API development. In our current version we are providing you the features to write CRUD applications, python scripting, and JWT based autorization. We have planned to include so many feature in our roadmap that will not only help you write APIs with less-code but to support full stack low code development
-              </p>
-
+              <h4 id="dist">Explore our features</h4>
+              <p>Less-code.io is designed for enterprise grade API development. In our current version we are providing you the features to write CRUD applications, python scripting, and JWT based autorization.</p>
+              <p>Checkout our <a href="tutorials">tutorials</a> to explore more features.</p>
             </article>
 
             <!-- <div class="text-center mt-8">

@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <title>TheDocs — Page not found</title>
+    <title>less-code.io — Page not found</title>
 
     <!-- Styles -->
     <link href="../assets/css/page.min.css" rel="stylesheet">
