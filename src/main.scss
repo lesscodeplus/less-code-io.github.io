@@ -1,0 +1,63 @@
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    background-color: #1E1E1E;
+    color:white;
+    margin:0px;
+    padding:0px;
+}
+
+input[type=text] {
+    color: gray;
+    background-color: black;
+    border: none;
+    display: block;
+    padding: 14px 20px;
+    border-radius: 4px;
+}
+
+input[type=text]:focus:hover{
+    outline: none;
+    border-radius:0;
+    
+}   
+
+.auth-input {
+    width:260px;
+    margin-bottom:10px !important;
+}
+
+button {
+    background-color: #BF00FF;
+    color: white;
+    padding: 14px 20px;
+    margin-right:10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width:120px;
+}
+
+button:hover {
+    background-color: #926DDE;
+}
+
+::-webkit-scrollbar-track {
+    border: 1px solid #000;
+    padding: 2px 0;
+    background-color: #1e1e1e;
+  }
+  
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #424242;
+    border: 1px solid #000;
+  }
+
+  .row {
+      display: flex;
+      flex-direction: row;
+  }
