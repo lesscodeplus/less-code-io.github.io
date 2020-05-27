@@ -1,19 +1,22 @@
 <template>
   <div class="sign-up-form">
-    <h1>Sign up for Free</h1>
-    <p>Just fill in these three fields to start using our API designer</p>
+    <h1>Save time and cost by using Less-Code IDE to make APIs without coding</h1>
+    <p>It only takes less than a minute to sign up and try out!!!</p>
     <div class="sign-up-form__form">
       <div class="sign-up-form__form__inputs">
-        <el-input type="text" placeholder="Company Name or User Name" v-model="userName" class="auth-input"></el-input>
+        <!-- <el-input type="text" placeholder="User Name" v-model="userName" class="auth-input"></el-input> -->
         <el-input type="text" placeholder="Email" v-model="email" class="auth-input"></el-input>
         <el-input type="text" placeholder="Password" v-model="password" class="auth-input"></el-input>
+        <p> By creating an account, you are agreeing to our Terms of Service and Privacy Policy. </p>
       </div>
+      
       
       <div class="sign-up-form__form__buttons">
         <el-button type="primary" v-on:click="submit">Sign Up</el-button>
       </div>
-
+      
       <p>Already have an account? <router-link  to="?login">Login instead</router-link></p>
+      
     </div>
   </div>
 </template>
@@ -40,13 +43,24 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .sign-up-form {
+  h1 {
+    margin:0px;
+    font-weight: 100;
+    margin-bottom:40px;
+  }
+
   &__form {
     &__inputs {
       margin-top: 30px;
       margin-bottom: 30px;
+      p {
+        font-size:12px;
+      }
     }
 
     &__buttons {
+      display: flex;
+      
       margin-bottom: 30px;
     }
   }

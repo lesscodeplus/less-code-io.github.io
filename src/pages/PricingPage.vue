@@ -1,15 +1,17 @@
 <template>
   <div class="pricing-page">
-    <el-row>
-      <el-col :md="16">Feature</el-col>
-      <el-col :md="4">Free</el-col>
-      <el-col :md="4">Enterprise</el-col>
-    </el-row>
-    <el-row v-for="item of items" :key="item.feature">
-      <el-col :md="16">{{item.feature}}</el-col>
-      <el-col :md="4">{{item.free}}</el-col>
-      <el-col :md="4">{{item.enterprise}}</el-col>
-    </el-row>
+    <div class="pricing-page__container">
+      <el-row  class="pricing-page__container__header">
+        <el-col :span="16"><label>Feature</label></el-col>
+        <el-col :span="4"><label>Free</label></el-col>
+        <el-col :span="4"><label>Enterprise</label></el-col>
+      </el-row>
+      <el-row v-for="item of items" :key="item.feature" class="pricing-page__container__row">
+        <el-col :span="16"><label>{{item.feature}}</label></el-col>
+        <el-col :span="4"><label>{{item.free}}</label></el-col>
+        <el-col :span="4"><label>{{item.enterprise}}</label></el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -24,11 +26,9 @@ export default {
   data() {
     return {
       items: [
-        {
-          feature: "Number of Blocks",
-          free: "20",
-          enterprise:"Unlimited"
-        }
+        {feature: "Number of APIs",free: "5",enterprise:"Unlimited"},
+        {feature: "Number of Blocks",free: "20",enterprise:"Unlimited"},
+        {feature: "Sandbox Storage",free: "50 MB",enterprise:"Unlimited"}
       ]
     }
   }
@@ -39,7 +39,33 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .pricing-page {
+  display: flex;
+  justify-content: center;
 
+  &__container{
+    margin-top:100px;
+    width:100%;
+    max-width:1200px;
+    
+    &__header {
+      background-color: rgb(97, 1, 129);
+      padding-top:10px;
+      padding-bottom:10px;
+
+label {
+        margin-left:20px;
+      }
+    }
+
+    &__row {
+      padding-top:10px;
+      padding-bottom:10px;
+      background-color: #242424;
+      label{
+        margin-left:20px;
+      }
+    }
+  }
 
 }
 </style>

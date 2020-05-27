@@ -50,7 +50,7 @@
 
 const FeatureItem = {
   template: `
-      <el-row class="feature-item">
+      <el-row class="feature-item hovarable">
         <el-col :md="12">
           <img class="feature-item__image" :src="getImage(image)"/>
         </el-col>
@@ -108,7 +108,7 @@ export default {
 .features-page {
   display: flex;
   justify-content: center;
-  margin-top:80px;
+  margin-top:100px;
 
   &__container {
     max-width:1200px;

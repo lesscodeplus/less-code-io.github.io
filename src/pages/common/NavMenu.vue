@@ -3,11 +3,11 @@
     <div>
       <div class="grid-content">
         <ul>
-          <li><router-link to="/"><img src="../../assets/logo.png"/></router-link></li>
-          <li><router-link to="features">Features</router-link></li>
-          <li><router-link to="documentation">Documentation</router-link></li>
-          <li><router-link to="pricing">Pricing</router-link></li>
-          <li><router-link to="contact">Contact Us</router-link></li>
+          <li class="hovarable-inv"><router-link to="/"><img src="../../assets/logo.png"/></router-link></li>
+          <li class="hovarable-inv"><router-link to="features">Features</router-link></li>
+          <li class="hovarable-inv"><router-link to="documentation">Documentation</router-link></li>
+          <li class="hovarable-inv"><router-link to="pricing">Pricing</router-link></li>
+          <li class="hovarable-inv"><router-link to="contact">Contact Us</router-link></li>
         </ul>
         
       </div>

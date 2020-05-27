@@ -58,9 +58,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
     .home-auth {
-      padding:20px;
-      background: #333333;
-      border-radius: 10px;
-      width:300px;
+
     }
 </style>

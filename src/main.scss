@@ -11,10 +11,6 @@ body {
     color: gray !important;
     background-color: black !important;
     border-color: gray !important;
-}
-
-.auth-input {
-    width:260px;
     margin-bottom:10px !important;
 }
 
@@ -42,4 +38,22 @@ body {
     border-radius: 5px;
     background-color: #424242;
     border: 1px solid #000;
+}
+
+.hovarable:hover {
+    opacity: 1;
+}
+
+.hovarable {
+    opacity: 0.7;
+    transition: opacity 0.5s;
+}
+
+.hovarable-inv:hover {
+    opacity: 0.7;
+}
+
+.hovarable-inv {
+    opacity: 1;
+    transition: opacity 0.5s;
 }
