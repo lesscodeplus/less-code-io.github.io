@@ -1,14 +1,19 @@
 <template>
   <div class="app">
+    
     <div class="app__menu">
       <NavMenu/>
     </div>
-    <div class="app__page">
-      <router-view/>
+
+    <div class="app__container">
+      <div class="app__container__page">
+        <router-view/>
+      </div>
+      <div class="app__container__footer">
+        <Footer/>
+      </div>
     </div>
-    <div class="app__footer">
-      <Footer/>
-    </div>
+
   </div>
 </template>
 
@@ -30,20 +35,28 @@ export default {
   @import "./main.scss";
 
   .app {
+    &__menu {
+      display: aboslute;
+      top:0px;
+    }
     
+    &__container {
+      overflow: auto;
+      
+      &__page {
+        min-height:100vh;
+        margin-top:20px;
+        margin-bottom:20px;
+        margin-left:40px;
+        margin-right:40px;
+      }
+      
+      &__footer {
+        height:100px;
+        background-color: #252526;
+      }
+    }
 
-    &__page {
-      min-height:calc(100vh - 320px);
-      margin-top:20px;
-      margin-bottom:20px;
-      margin-left:40px;
-      margin-right:40px;
-    }
-    
-    &__footer {
-      height:200px;
-      background-color: black;
-    }
   }
 
 </style>

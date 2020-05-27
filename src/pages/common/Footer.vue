@@ -1,6 +1,6 @@
 <template>
   <div class="nav-footer">
-      
+      <p>Copyright (c) less-code.io 2020</p>
   </div>
 </template>
 
@@ -14,6 +14,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
     .nav-footer {
-
+      height:100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      
+      p {
+        opacity: 0.5;
+      }
     }
 </style>

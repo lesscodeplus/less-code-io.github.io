@@ -5,7 +5,7 @@
         <ul>
           <li><router-link to="/"><img src="../../assets/logo.png"/></router-link></li>
           <li><router-link to="features">Features</router-link></li>
-          <li><router-link to="faq">FAQ</router-link></li>
+          <li><router-link to="documentation">Documentation</router-link></li>
           <li><router-link to="pricing">Pricing</router-link></li>
           <li><router-link to="contact">Contact Us</router-link></li>
         </ul>
