@@ -1,7 +1,7 @@
 <template>
   <div class="sign-up-form">
-    <h1>Save time and cost by using Less-Code IDE to make APIs without coding</h1>
-    <p>It only takes less than a minute to sign up and try out!!!</p>
+    <h1 class="auth-title">Save time and cost by using Less-Code IDE to make APIs without coding</h1>
+    <p>It only takes less than a minute to sign up and try out less-code BETA!!!</p>
     <div class="sign-up-form__form">
       <div class="sign-up-form__form__inputs">
         <!-- <el-input type="text" placeholder="User Name" v-model="userName" class="auth-input"></el-input> -->
@@ -12,10 +12,10 @@
       
       
       <div class="sign-up-form__form__buttons">
-        <el-button type="primary" v-on:click="submit">Sign Up</el-button>
+        <el-button type="primary" class="auth-button" v-on:click="submit">Sign Up</el-button>
       </div>
       
-      <p>Already have an account? <router-link  to="?login">Login instead</router-link></p>
+      <p>Already have an account? <router-link class="auth-link"  to="?login">Login instead</router-link></p>
       
     </div>
   </div>
@@ -43,11 +43,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .sign-up-form {
-  h1 {
-    margin:0px;
-    font-weight: 100;
-    margin-bottom:20px;
-  }
 
   &__form {
     &__inputs {

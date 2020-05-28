@@ -37,6 +37,7 @@ export default {
     &__menu {
       display: aboslute;
       top:0px;
+      box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
     }
     
     &__container {

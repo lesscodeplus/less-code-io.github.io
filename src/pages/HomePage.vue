@@ -2,7 +2,7 @@
   <div class="home-page">
     <div class="home-page__container">
       
-      <el-row class="home-page__container__top-stuff hovarable">
+      <el-row class="home-page__container__top-stuff">
         <el-col :lg="16">
           <img class="home-page__container__top-stuff__laptop" src="../../public/img/home-laptop.png"/>
         </el-col>
@@ -13,12 +13,12 @@
 
       <el-row>
         <FeatureItem 
-          title="Develop APIs Without Code" 
+          title="Make APIs Without Code" 
           message="Develop REST APIs without coding with our IDE. Define your business logic with 'blocks'" 
           image="home-feature-1.png"/>
 
         <FeatureItem 
-          title="Design Data Models" 
+          title="Connect to Databases" 
           message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
           image="home-feature-2.png"/>
 
@@ -30,19 +30,21 @@
 
       <el-row>
         <FeatureItem 
-          title="Generate API Documentation " 
+          title="Monitor in Production" 
           message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
-          image="home-feature-4.png"/>
+          image="home-feature-6.png"/>
 
         <FeatureItem 
-          title="Integrate 3rd Party Systems" 
+          title="Integrate with Other Systems" 
           message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
           image="home-feature-5.png"/>
 
         <FeatureItem 
-          title="Track Production Issues Easily" 
+          title="Automatic Documentation " 
           message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
-          image="home-feature-6.png"/>
+          image="home-feature-4.png"/>
+
+
       </el-row>
 
       <el-row>
@@ -114,7 +116,7 @@ export default {
 
     &__title{
       font-size:24px;
-      
+      text-shadow: 2px 2px 6px #000000;
       height:60px;
       margin:0px;
     }
@@ -128,6 +130,7 @@ export default {
     &__message{
       font-size:18px;
       text-align: justify;
+      line-height: 1.5;
     }
   }
 
@@ -147,6 +150,7 @@ export default {
       
       &__laptop {
         height:490px;
+        opacity:0.8;
       }
     }
 

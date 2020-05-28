@@ -1,43 +1,58 @@
 <template>
-  <footer class="cookies">
-      <div class="cookies__container">
-        <el-row>
-          <el-col :span="18">
-            <p>We use Cookies to enhance your user experience</p>
-            <p>for a complete overview of all cookes used, Please see our privacy policy</p>
-          </el-col>
-        
-          <el-col :span="6" class="cookies__container__buttons">
-            <el-button type="primary">Accept</el-button>
-            <el-button>Reject</el-button>
-          </el-col>
+  <transition name="fade">
+    <footer class="cookies" v-if="visible">
+        <div class="cookies__container">
+          <el-row>
+            <el-col :span="18">
+              <p>We use Cookies to enhance your user experience</p>
+              <p>for a complete overview of all cookes used, Please see our privacy policy</p>
+            </el-col>
+          
+            <el-col :span="6" class="cookies__container__buttons">
+              <el-button @click="createCookie" type="primary">Accept</el-button>
+              <el-button @click="visible=false">Reject</el-button>
+            </el-col>
 
-        </el-row>
+          </el-row>
 
-      </div>
-  </footer>
+        </div>
+    </footer>
+  </transition>
 </template>
 
 <script>
 export default {
   name: 'Cookies',
-  props: {}
+  beforeMount(){
+    const cookieItem = localStorage.getItem("cookieCreated");
+    if (!cookieItem){
+      this.visible = true;
+    }
+  },
+  data() {
+    return {
+      visible:false
+    }
+  },
+  methods:{
+    createCookie(){
+      localStorage.setItem("cookieCreated","true");
+      this.visible = false;
+    }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  @keyframes slideInFromLeft {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(0);
-    }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
   }
 
   .cookies {
-      animation: 0.3s ease-out 0s 1 slideInFromLeft;
 
       height:100px;
       width:100%;

@@ -2,7 +2,7 @@
   <div class="doc-page">
     <div class="row">
       <div>
-        <h1>Documentation</h1>
+        <h1>Coming Soon :). ok?</h1>
       </div>
     </div>
     
@@ -23,7 +23,7 @@ export default {
 .doc-page {
   h1 {
     font-weight: 100;
-    font-size: 70px;
+    font-size: 50px;
   }
 }
 </style>

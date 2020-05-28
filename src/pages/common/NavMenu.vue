@@ -44,6 +44,7 @@ export default {
           margin-right: 100px;
           cursor: pointer;
           vertical-align: middle;
+          text-shadow: 2px 2px 4px #000000;
           a{
            color: white; 
            text-decoration: none;

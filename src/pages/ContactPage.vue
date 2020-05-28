@@ -1,11 +1,43 @@
 <template>
   <div class="contact-page">
-    <div class="row">
-      <div>
-        <h1>Contact Us</h1>
-      </div>
-    </div>
-    
+    <div class="contact-page__container">
+      <el-row>
+        <el-col :sm="12">
+          <div class="contact-page__container__form">
+            <el-form ref="contactForm" :model="contactForm" :rules="rules" label-width="120px">
+              <el-form-item prop="name">
+                <el-input placeholder="Name" v-model="contactForm.name"></el-input>
+              </el-form-item>
+              <el-form-item prop="email">
+                <el-input placeholder="Email" v-model="contactForm.email"></el-input>
+              </el-form-item>
+              <el-form-item prop="message">
+                <el-input type="textarea" :rows="9" placeholder="Message" v-model="contactForm.message"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-button type="primary" @click="onSubmit('contactForm')">Submit</el-button>
+              </el-form-item>
+            </el-form>
+          </div>
+        </el-col>
+        <el-col :sm="12">
+          <div class="contact-page__container__address">
+            <div> 
+              <h4>Connect with us</h4>
+              <p>For support or any questions, </p>
+              <p>Email us at supun@less-code.io</p>
+            </div>
+            <div>
+              <h4>less-code.io</h4>
+              <p>127/44B Dutugemunu Street,</p>
+              <p>Colombo-06</p>
+              <p>Phone: +94 719998797</p>
+            </div>
+          </div>
+
+        </el-col>
+      </el-row>
+    </div>   
   </div>
 </template>
 
@@ -14,16 +46,67 @@
 export default {
   name: 'ContactPage',
   components : {},
-  props: {}
+  props: {},
+  data(){
+    return {
+      contactForm: {
+        name:null,
+        email:null,
+        message:null
+      },
+      rules: {
+          name: [
+            { required: true, message: 'Name is required', trigger: 'blur' }
+          ],
+          email: [
+            { required: true, message: 'Email address is required', trigger: 'blur' },
+            { type: 'email', message: 'Please enter a valid email address', trigger: 'blur' },
+          ],
+          message: [
+            { required: true, message: 'Messsage is required', trigger: 'blur' }
+          ]
+      }
+    }
+  },
+  methods:{
+    onSubmit(formName){
+        this.$refs[formName].validate((valid) => {
+          console.log(valid);
+          if (valid) {
+            alert('submit!');
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+    }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .contact-page {
-  h1 {
-    font-weight: 100;
-    font-size: 70px;
+  display: flex;
+  justify-content: center;
+  &__container{
+    margin-top:100px;
+    width:100%;
+    max-width:1200px;
+
+    &__form {
+      padding:20px;
+    }
+
+    &__address{
+      padding-left:20px;
+      div {
+        h4 {
+          opacity: 0.5;
+        }
+        margin-bottom: 40px;
+      }
+    }
   }
 }
 </style>

@@ -1,17 +1,17 @@
 <template>
   <div class="forgot-password-form">
-    <h1>Recover password</h1>
+    <h1 class="auth-title">Recover password</h1>
     <p>Just fill in these three fields to start using our API designer</p>
     <div class="forgot-password-form__form">
       <div class="forgot-password-form__form__inputs">
-        <input type="text" placeholder="Email" v-model="email" class="auth-input"/>
+        <el-input type="text" placeholder="Email" v-model="email" class="auth-input"></el-input>
       </div>
 
       <div class="forgot-password-form__form__buttons">
-        <button type="primary" v-on:click="submit">Reset</button>
+        <el-button type="primary" class="auth-button" v-on:click="submit">Reset</el-button>
       </div>
 
-      <p>Remember your credentials? <router-link  to="?login">Login instead</router-link></p>
+      <p>Remember your credentials? <router-link class="auth-link"  to="?login">Login instead</router-link></p>
     </div>
   </div>
 </template>

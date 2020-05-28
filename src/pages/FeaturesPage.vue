@@ -92,9 +92,7 @@ export default {
   &__image {
     height:300px;
     margin-bottom:30px;
-    border-radius: 10px;
-    border: solid;
-    border-color: rgb(128, 128, 128);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
   }
 
   &__message {
@@ -105,6 +103,7 @@ export default {
     font-size:30px;
     margin:0px;
     margin-bottom: 30px;
+    text-shadow: 2px 2px 6px #000000;
   }
 }
 

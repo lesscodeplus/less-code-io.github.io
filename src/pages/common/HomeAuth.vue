@@ -1,5 +1,5 @@
 <template>
-  <div class="home-auth">
+  <div class="home-auth hovarable">
     <SignUpForm v-if="showForm==0" />
     <SignInForm v-if="showForm==1"/>
     <ForgotPasswordForm v-if="showForm==2"/>
