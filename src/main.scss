@@ -1,5 +1,9 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: OpenSans, Avenir, Helvetica, Arial, sans-serif;
     background-color: #1E1E1E;
     color:white;
     margin:0px;
@@ -56,4 +60,9 @@ body {
 .hovarable-inv {
     opacity: 1;
     transition: opacity 0.5s;
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url("../public/ttf/OpenSans-Regular.ttf");
 }

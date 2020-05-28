@@ -88,10 +88,13 @@ export default {
 
 .feature-item {
   margin-bottom:60px;
-  
+
   &__image {
     height:300px;
     margin-bottom:30px;
+    border-radius: 10px;
+    border: solid;
+    border-color: rgb(128, 128, 128);
   }
 
   &__message {

@@ -46,7 +46,7 @@ export default {
   h1 {
     margin:0px;
     font-weight: 100;
-    margin-bottom:40px;
+    margin-bottom:20px;
   }
 
   &__form {

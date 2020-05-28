@@ -49,7 +49,7 @@
         <el-col :span="24">
           <div class="home-page__container__signup-action hovarable">
             <h1>It only takes less than a minute to sign up</h1>
-            <el-button type="primary">Sign Up</el-button>
+            <el-button type="primary" @click="scrollToTop()">Sign Up</el-button>
           </div>
         </el-col>
       </el-row>
@@ -90,7 +90,12 @@ export default {
     HomeAuth,
     FeatureItem
   },
-  props: {  }
+  props: {  },
+  methods: {
+    scrollToTop(){
+      window.scrollTo(0,0);
+    }
+  }
 }
 </script>
 
@@ -141,14 +146,14 @@ export default {
       margin-bottom: 150px;
       
       &__laptop {
-        height:480px;
+        height:490px;
       }
     }
 
     &__signup-action {
       display: flex;
       align-items: center;
-      margin-bottom:80px;
+      margin-bottom:120px;
       padding-left:50px;
       padding-right:50px;
 

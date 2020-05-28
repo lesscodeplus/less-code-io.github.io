@@ -13,7 +13,6 @@
         <Footer/>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -52,8 +51,8 @@ export default {
       }
       
       &__footer {
-        height:100px;
-        background-color: #252526;
+        height:500px;
+        background-color: black;
       }
     }
 
