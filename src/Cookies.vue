@@ -5,7 +5,7 @@
           <el-row>
             <el-col :span="18">
               <p>We use Cookies to enhance your user experience</p>
-              <p>for a complete overview of all cookes used, Please see our privacy policy</p>
+              <p>for a complete overview of all cookes used, Please see our <router-link class="auth-link" to="privacy">privacy policy</router-link></p>
             </el-col>
           
             <el-col :span="6" class="cookies__container__buttons">

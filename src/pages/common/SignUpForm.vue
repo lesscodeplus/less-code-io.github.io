@@ -7,7 +7,7 @@
         <!-- <el-input type="text" placeholder="User Name" v-model="userName" class="auth-input"></el-input> -->
         <el-input type="text" placeholder="Email" v-model="email" class="auth-input"></el-input>
         <el-input type="text" placeholder="Password" v-model="password" class="auth-input"></el-input>
-        <p> By creating an account, you are agreeing to our Terms of Service and Privacy Policy. </p>
+        <p> By creating an account, you are agreeing to our <router-link class="auth-link" to="terms">Terms of Service</router-link> and <router-link class="auth-link" to="privacy">Privacy Policy.</router-link> </p>
       </div>
       
       
