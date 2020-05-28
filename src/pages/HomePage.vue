@@ -51,7 +51,7 @@
         <el-col :span="24">
           <div class="home-page__container__signup-action hovarable">
             <h1>It only takes less than a minute to sign up</h1>
-            <el-button type="primary" @click="scrollToTop()">Sign Up</el-button>
+            <el-button type="primary" class="auth-button" @click="scrollToTop()">Sign Up</el-button>
           </div>
         </el-col>
       </el-row>

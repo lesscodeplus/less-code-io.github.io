@@ -5,6 +5,7 @@ import router from './router'
 import  './element'
 
 Vue.config.productionTip = false
+Vue.prototype.$scrollToTop = () => window.scrollTo(0,0)
 
 new Vue({
   router,

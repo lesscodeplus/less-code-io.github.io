@@ -15,7 +15,7 @@
                 <el-input type="textarea" :rows="9" placeholder="Message" v-model="contactForm.message"></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" @click="onSubmit('contactForm')">Submit</el-button>
+                <el-button type="primary" class="auth-button" @click="onSubmit('contactForm')">Submit</el-button>
               </el-form-item>
             </el-form>
           </div>
