@@ -107,45 +107,49 @@ body {
 
 /* top right*/
 .ribbon-top-right {
-    top: 0px;
-    right: 0px;
-  }
-  .ribbon-top-right::before,
-  .ribbon-top-right::after {
-    border-top-color: transparent;
-    border-right-color: transparent;
-  }
-  .ribbon-top-right::before {
-    top: 0;
-    left: 0;
-  }
-  .ribbon-top-right::after {
-    bottom: 0;
-    right: 0;
-  }
-  .ribbon-top-right span {
-    left: -20px;
-    top: 40px;
-    transform: rotate(45deg);
-  }
+  top: 0px;
+  right: 0px;
+}
+.ribbon-top-right::before,
+.ribbon-top-right::after {
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.ribbon-top-right::before {
+  top: 0;
+  left: 0;
+}
+.ribbon-top-right::after {
+  bottom: 0;
+  right: 0;
+}
+.ribbon-top-right span {
+  left: -20px;
+  top: 40px;
+  transform: rotate(45deg);
+}
 
-  h1.auth-title {
-    margin:0px;
-    font-weight: 100;
-    margin-bottom:20px;
-    text-shadow: 2px 2px 6px #000000;
-  }
+h1.auth-title {
+  margin:0px;
+  font-weight: 100;
+  margin-bottom:20px;
+  text-shadow: 2px 2px 6px #000000;
+}
 
-  .auth-button {
-    width:120px;
-    margin-right:20px;
-  }
+.auth-button {
+  width:120px;
+  margin-right:20px;
+}
 
-  .auth-link,.auth-link:link,.auth-link:visited,.auth-link:hover,.auth-link:active {
-    color: #3498DB;
-  }
+.auth-link,.auth-link:link,.auth-link:visited,.auth-link:hover,.auth-link:active {
+  color: #3498DB;
+}
 
-  .feature-link,.feature-link:link,.feature-link:visited,.feature-link:hover,.feature-link:active {
-    color:white;
-    text-decoration: none;
-  }
+.feature-link,.feature-link:link,.feature-link:visited,.feature-link:hover,.feature-link:active {
+  color:white;
+  text-decoration: none;
+}
+
+.grecaptcha-badge { 
+    visibility: hidden;
+}
