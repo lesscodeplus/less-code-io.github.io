@@ -5,6 +5,7 @@
     <div class="forgot-password-form__form">
       <div class="forgot-password-form__form__inputs">
         <el-alert v-if="signUpError" :title="signUpError" type="error" effect="dark" :closable="false" show-icon></el-alert>
+        <el-alert v-if="submitted" title="Please check your email, We have sent you an email with a link to reset your password. :) " type="success" effect="dark" :closable="false" show-icon></el-alert>
         <el-form ref="form_forgot" :model="form" :rules="rules">
           <el-form-item prop="email">
             <el-input placeholder="Email" v-model="form.email"></el-input>
@@ -37,6 +38,7 @@ export default {
           if (result.error){
             this.signUpError = result.error;
           }else {
+            this.submitted = true;
             this.resetForm();
             this.recaptchaValidated = false;
             this.formValidated = false;
@@ -73,6 +75,7 @@ export default {
       signUpError: undefined,
       formValidated:false,
       recaptchaValidated:false,
+      submitted:false,
       rules: {
           email: [
             { required: true, message: 'Email address is required', trigger: 'blur' },

@@ -2,9 +2,11 @@
   <div class="contact-page">
     <div class="contact-page__container">
       <el-row>
-        <el-col :sm="12">
+        <el-col :sm="12">         
           <div class="contact-page__container__form">
+            <el-alert v-if="submitted" title="We have recieved your message, we will go through it and get back to you :) " type="success" effect="dark" :closable="false" show-icon></el-alert>            
             <el-form ref="contactForm" :model="contactForm" :rules="rules" label-width="120px">
+              
               <el-form-item prop="name">
                 <el-input placeholder="Name" v-model="contactForm.name"></el-input>
               </el-form-item>
@@ -56,6 +58,7 @@ export default {
       signUpError: undefined,
       formValidated:false,
       recaptchaValidated:false,
+      submitted:false,
       contactForm: {
         name:null,
         email:null,
@@ -82,6 +85,7 @@ export default {
           if (result.error){
             this.signUpError = result.error;
           }else {
+            this.submitted = true;
             this.resetForm();
             this.recaptchaValidated = false;
             this.formValidated = false;
@@ -124,6 +128,12 @@ export default {
 
     &__form {
       padding:20px;
+
+      .el-alert {
+        margin-bottom:20px;
+        margin-left:120px;
+        width:440px;
+      }
     }
 
     &__address{
