@@ -33,18 +33,7 @@ export default class JsonRpcClient {
             const response = await Vue.axios.post(endpoint,request,config);
             return response.data;
         }catch (e){
-            if (!e.response){
-                return {error : {code:"Errors.RPC_UNABLE_TO_CONNECT", message: `Strings.RPC_UNABLE_TO_CONNECT : ${endpoint}`}};
-            }else {
-                switch (e.response.status){
-                    case 401:
-                        return {error : {code:"Errors.AUTH_ERROR", message: "Strings.RPC_SERVER_ERROR"}};
-                    case 500:
-                        return {error : {code:"Errors.RPC_SERVER_ERROR", message: "Strings.RPC_SERVER_ERROR"}};
-                    default:
-                        return {error : {code:"Errors.RPC_UNKNOWN_ERROR", message: "Strings.RPC_UNKNOWN_ERROR"}};
-                }
-            }  
+            return {result: {error : "Service Unavailable"} };
         }
 
 

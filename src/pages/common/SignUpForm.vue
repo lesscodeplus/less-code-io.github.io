@@ -4,14 +4,8 @@
     <p>It only takes less than a minute to sign up and try out less-code BETA!!!</p>
     <div class="sign-up-form__form">
       <div class="sign-up-form__form__inputs">
-        <el-alert v-if="signUpError"
-          :title="signUpError"
-          type="error"
-          effect="dark"
-          :closable="false"
-          show-icon>
-        </el-alert>
-        <el-form ref="form" :model="form" :rules="rules">
+        <el-alert v-if="signUpError" :title="signUpError" type="error" effect="dark" :closable="false" show-icon></el-alert>
+        <el-form ref="form_signup" :model="form" :rules="rules">
           <el-form-item prop="email">
             <el-input placeholder="Email" v-model="form.email"></el-input>
           </el-form-item>
@@ -28,9 +22,9 @@
           </el-form-item>
           <el-form-item>
             <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptcha" @verify="onRecaptchaVerified" v-show="formValidated" >
-              <el-button type="primary" class="auth-button" v-on:click="onSubmit('form')">Sign Up</el-button>
+              <el-button type="primary" class="auth-button" v-on:click="onSubmit()">Sign Up</el-button>
             </vue-recaptcha>
-            <el-button  v-show="!formValidated" type="primary" class="auth-button" v-on:click="onSubmit('form')">Sign Up</el-button>
+            <el-button  v-show="!formValidated" type="primary" class="auth-button" v-on:click="onSubmit()">Sign Up</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -60,7 +54,7 @@ export default {
           if (result.error){
             this.signUpError = result.error;
           }else {
-            this.resetForm('form');
+            this.resetForm();
             this.recaptchaValidated = false;
             this.formValidated = false;
             this.$refs.recaptcha.reset();
@@ -74,7 +68,7 @@ export default {
         this.submitForm();
     },
     onSubmit(){
-      this.$refs.form.validate((valid) => {
+      this.$refs.form_signup.validate((valid) => {
         if (valid){
           this.formValidated = true;
           this.$refs.recaptcha.execute();
@@ -82,8 +76,8 @@ export default {
         }
       });
     },
-    resetForm(formName) {
-      this.$refs[formName].resetFields();
+    resetForm() {
+      this.$refs.form_signup.resetFields();
     },
     scorePassword(pass) {
         let score = 0;

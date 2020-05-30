@@ -8,7 +8,7 @@ class AuthService {
         this.jsonRpcClient = new JsonRpcClient("UiServices");
     }
 
-    async signIn(email,password){
+    async signIn({email,password}){
         const result = await this.jsonRpcClient.call(undefined,"AuthService", "signIn", [email,password]);
         return result.result;
     }
@@ -18,7 +18,7 @@ class AuthService {
         return result.result;
     }
 
-    async forgotPassword(email){
+    async forgotPassword({email}){
         const result = await this.jsonRpcClient.call(undefined,"AuthService", "forgotPassword", [email]);
         return result.result;
     }    

@@ -14,9 +14,12 @@
               <el-form-item prop="message">
                 <el-input type="textarea" :rows="9" placeholder="Message" v-model="contactForm.message"></el-input>
               </el-form-item>
-              <el-form-item>
-                <el-button type="primary" class="auth-button" @click="onSubmit('contactForm')">Submit</el-button>
-              </el-form-item>
+          <el-form-item>
+            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptchaContact" @verify="onRecaptchaVerified" v-show="formValidated" >
+              <el-button type="primary" class="auth-button" v-on:click="onSubmit()">Submit</el-button>
+            </vue-recaptcha>
+            <el-button  v-show="!formValidated" type="primary" class="auth-button" v-on:click="onSubmit()">Submit</el-button>
+          </el-form-item>
             </el-form>
           </div>
         </el-col>
@@ -42,13 +45,17 @@
 </template>
 
 <script>
+import VueRecaptcha from 'vue-recaptcha';
 
 export default {
   name: 'ContactPage',
-  components : {},
+  components: { VueRecaptcha },
   props: {},
   data(){
     return {
+      signUpError: undefined,
+      formValidated:false,
+      recaptchaValidated:false,
       contactForm: {
         name:null,
         email:null,
@@ -69,16 +76,37 @@ export default {
     }
   },
   methods:{
-    onSubmit(formName){
-        this.$refs[formName].validate((valid) => {
-          console.log(valid);
-          if (valid) {
-            alert('submit!');
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
+    async submitForm(){
+        if (this.formValidated && this.recaptchaValidated){
+          const result = await this.$authService.signUp({...this.$data.form});
+          if (result.error){
+            this.signUpError = result.error;
+          }else {
+            this.resetForm();
+            this.recaptchaValidated = false;
+            this.formValidated = false;
+            this.$refs.recaptchaContact.reset();
+            this.signUpError = undefined;
+          } 
+        }
+     
+    },
+    onRecaptchaVerified(){
+        this.recaptchaValidated = true;
+        this.submitForm();
+    },
+    onSubmit(){
+      console.log(this.$refs);
+      this.$refs.contactForm.validate((valid) => {
+        if (valid){
+          this.formValidated = true;
+          this.$refs.recaptchaContact.execute();
+          this.submitForm();
+        }
+      });
+    },
+    resetForm() {
+      this.$refs.contactForm.resetFields();
     }
   }
 }
