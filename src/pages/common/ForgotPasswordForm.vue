@@ -33,14 +33,17 @@ export default {
   components: { VueRecaptcha },
   methods: {
     async submitForm(){
-        if (this.formValidated && this.recaptchaValidated){
-          const result = await this.$authService.signUp({...this.$data.form});
+        if (this.formValidated && this.recaptchaToken){
+          const l = window.location;
+          const port = l.port ? `:${l.port}`:"";
+          const host = `${l.protocol}//${l.hostname}${port}`;
+          const result = await this.$authService.forgotPassword({host, recaptchaToken:this.recaptchaToken,...this.$data.form});
           if (result.error){
             this.signUpError = result.error;
           }else {
             this.submitted = true;
             this.resetForm();
-            this.recaptchaValidated = false;
+            this.recaptchaToken = undefined;
             this.formValidated = false;
             this.$refs.recaptchaForgot.reset();
             this.signUpError = undefined;
@@ -48,8 +51,8 @@ export default {
         }
      
     },
-    onRecaptchaVerified(){
-        this.recaptchaValidated = true;
+    onRecaptchaVerified(recaptchaToken){
+        this.recaptchaToken = recaptchaToken;
         this.submitForm();
     },
     onSubmit(){
@@ -74,7 +77,7 @@ export default {
       },
       signUpError: undefined,
       formValidated:false,
-      recaptchaValidated:false,
+      recaptchaToken:undefined,
       submitted:false,
       rules: {
           email: [

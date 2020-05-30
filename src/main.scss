@@ -81,7 +81,7 @@ body {
     width: 150px;
     height: 150px;
     overflow: hidden;
-    position: absolute;
+    position: fixed;
   }
   .ribbon::before,
   .ribbon::after {

@@ -49,13 +49,16 @@ export default {
   },
   methods : {
     async submitForm(){
-        if (this.formValidated && this.recaptchaValidated){
-          const result = await this.$authService.signUp({...this.$data.form});
+        if (this.formValidated && this.recaptchaToken){
+          const l = window.location;
+          const port = l.port ? `:${l.port}`:"";
+          const host = `${l.protocol}//${l.hostname}${port}`;
+          const result = await this.$authService.signUp({host, recaptchaToken:this.recaptchaToken,...this.$data.form});
           if (result.error){
             this.signUpError = result.error;
           }else {
             this.resetForm();
-            this.recaptchaValidated = false;
+            this.recaptchaToken = undefined;
             this.formValidated = false;
             this.$refs.recaptcha.reset();
             this.signUpError = undefined;
@@ -63,8 +66,8 @@ export default {
         }
      
     },
-    onRecaptchaVerified(){
-        this.recaptchaValidated = true;
+    onRecaptchaVerified(recaptchaToken){
+        this.recaptchaToken = recaptchaToken;
         this.submitForm();
     },
     onSubmit(){
@@ -157,7 +160,7 @@ export default {
       },
       signUpError: undefined,
       formValidated:false,
-      recaptchaValidated:false,
+      recaptchaToken:undefined,
       rules: {
           email: [
             { required: true, message: 'Email address is required', trigger: 'blur' },

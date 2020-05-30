@@ -57,7 +57,7 @@ export default {
     return {
       signUpError: undefined,
       formValidated:false,
-      recaptchaValidated:false,
+      recaptchaToken:undefined,
       submitted:false,
       contactForm: {
         name:null,
@@ -80,14 +80,14 @@ export default {
   },
   methods:{
     async submitForm(){
-        if (this.formValidated && this.recaptchaValidated){
-          const result = await this.$authService.signUp({...this.$data.form});
+        if (this.formValidated && this.recaptchaToken){
+          const result = await this.$authService.submitContact({recaptchaToken:this.recaptchaToken,data: {...this.$data.form}});
           if (result.error){
             this.signUpError = result.error;
           }else {
             this.submitted = true;
             this.resetForm();
-            this.recaptchaValidated = false;
+            this.recaptchaToken = undefined;
             this.formValidated = false;
             this.$refs.recaptchaContact.reset();
             this.signUpError = undefined;
@@ -95,8 +95,8 @@ export default {
         }
      
     },
-    onRecaptchaVerified(){
-        this.recaptchaValidated = true;
+    onRecaptchaVerified(recaptchaToken){
+        this.recaptchaToken = recaptchaToken;
         this.submitForm();
     },
     onSubmit(){

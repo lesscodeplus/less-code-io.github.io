@@ -13,15 +13,20 @@ class AuthService {
         return result.result;
     }
 
-    async signUp({email,password}){
-        const result = await this.jsonRpcClient.call(undefined,"AuthService", "signUp", [email,password]);
+    async signUp({host, recaptchaToken,email,password}){
+        const result = await this.jsonRpcClient.call(undefined,"AuthService", "signUp", [host, recaptchaToken,email,password]);
         return result.result;
     }
 
-    async forgotPassword({email}){
-        const result = await this.jsonRpcClient.call(undefined,"AuthService", "forgotPassword", [email]);
+    async forgotPassword({host, recaptchaToken,email}){
+        const result = await this.jsonRpcClient.call(undefined,"AuthService", "forgotPassword", [host, recaptchaToken,email]);
         return result.result;
     }    
+    
+    async submitContact({recaptchaToken,data}){
+        const result = await this.jsonRpcClient.call(undefined,"AuthService", "submitContact", [recaptchaToken,data]);
+        return result.result;
+    }
 }
 
 const AuthServicePlugin  = {

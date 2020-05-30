@@ -57,7 +57,7 @@ export default {
       height:100px;
       width:100%;
       background-color: rgba(0,0,0,0.8);
-      
+      font-size:13px;
       position:fixed;
       bottom: 0px;
       z-index: 1000;
@@ -65,7 +65,10 @@ export default {
       justify-content: center;
       
       align-items: center;
-      
+      p {
+        margin:5px;
+      }
+
       &__container {
         width:100%;
         max-width: 1200px;
@@ -75,7 +78,6 @@ export default {
           align-items: center;
           justify-content: flex-end;
           button{
-            margin-top:25px;
             width:120px;
           }
         }
