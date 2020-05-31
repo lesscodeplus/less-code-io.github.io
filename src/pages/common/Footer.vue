@@ -10,8 +10,8 @@
 
         <el-row>
           <el-col :span="24" class="nav-footer__container__contact">
-            <p>+94 719998797</p>
-            <p>supun@less-code.io</p>
+            <p><a href="tel:+94719998797">+94 719998797</a></p>
+            <p><a href="mailto:supun@less-code.io">supun@less-code.io</a></p>
           </el-col>
         </el-row>
 
@@ -81,6 +81,12 @@ export default {
       h4 {
         opacity: 0.5;
       }
+
+      a {
+        color:white;
+        text-decoration: none;
+      }
+
       &__container{
         
         width:100%;

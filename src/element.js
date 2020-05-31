@@ -7,7 +7,8 @@ import {
     Form, 
     FormItem,
     Progress,
-    Alert
+    Alert,
+    Dialog
 } from 'element-ui'
 
 
@@ -19,3 +20,4 @@ Vue.use(Form);
 Vue.use(FormItem);
 Vue.use(Progress);
 Vue.use(Alert);
+Vue.use(Dialog);
