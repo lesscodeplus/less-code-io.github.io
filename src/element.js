@@ -8,7 +8,8 @@ import {
     FormItem,
     Progress,
     Alert,
-    Dialog
+    Dialog,
+    Drawer
 } from 'element-ui'
 
 
@@ -21,3 +22,4 @@ Vue.use(FormItem);
 Vue.use(Progress);
 Vue.use(Alert);
 Vue.use(Dialog);
+Vue.use(Drawer);

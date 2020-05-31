@@ -6,7 +6,7 @@
           <div class="contact-page__container__form">
             <el-alert v-if="signUpError" :title="signUpError" type="error" effect="dark" :closable="false" show-icon></el-alert>
             <el-alert v-if="submitted" title="We have recieved your message, we will go through it and get back to you :) " type="success" effect="dark" :closable="false" show-icon></el-alert>            
-            <el-form ref="contactForm" :model="contactForm" :rules="rules" label-width="120px">
+            <el-form ref="contactForm" :model="contactForm" :rules="rules">
               
               <el-form-item prop="name">
                 <el-input placeholder="Name" v-model="contactForm.name"></el-input>

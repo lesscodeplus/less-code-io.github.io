@@ -72,12 +72,14 @@ const getImage = (image) => {
 const FeatureItem = {
   template: `
       <el-row class="feature-item hovarable">
-        <el-col :md="12">
+        <el-col :xs="24" :sm="24" :md="12">
           <img @click="imageSelected" class="feature-item__image" :src="getImage(image)"/>
         </el-col>
-        <el-col :md="12">
-          <h3 class="feature-item__title">{{title}}</h3>
-          <p class="feature-item__message">{{message}}</p>
+        <el-col :xs="24" :sm="24" :md="12">
+          <div class="feature-item__desc">
+            <h3 class="feature-item__title">{{title}}</h3>
+            <p class="feature-item__message">{{message}}</p>
+          </div>
         </el-col>
       </el-row>
   `,
@@ -123,8 +125,14 @@ export default {
 .feature-item {
   margin-bottom:60px;
 
+  @media only screen and (min-width: 1024px) {
+      &__desc {
+        margin-left: 50px;
+      }
+  }
+
   &__image {
-    height:300px;
+    width:100%;
     margin-bottom:30px;
     cursor: pointer;
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);

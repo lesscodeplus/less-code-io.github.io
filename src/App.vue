@@ -3,6 +3,9 @@
     <div class="app__menu" v-if="!hideHeaderFooter">
       <NavMenu/>
     </div>
+    <div class="app__menu-mobile" v-if="!hideHeaderFooter">
+      <NavMenuMobile/>
+    </div>
 
     <div class="app__container">
       <div class="app__container__page">
@@ -18,12 +21,14 @@
 <script>
 
 import NavMenu from './pages/common/NavMenu';
+import NavMenuMobile from './pages/common/NavMenuMobile';
 import Footer from './pages/common/Footer';
 
 export default {
   name: 'App',
   components: {  
     NavMenu,
+    NavMenuMobile,
     Footer
   },
   data(){
@@ -50,7 +55,13 @@ export default {
         display: none;
       }
     }
-    
+
+    @media only screen and (min-width: 1200px) {
+      &__menu-mobile {
+        display: none;
+      }
+    }
+
     &__menu {
       display: aboslute;
       top:0px;

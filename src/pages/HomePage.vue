@@ -49,8 +49,7 @@
       <el-row>
         <el-col :span="24">
           <div class="home-page__container__signup-action hovarable">
-            <h1>It only takes less than a minute to sign up</h1>
-            <el-button type="primary" class="auth-button" @click="scrollToTop()">Sign Up</el-button>
+            <h1>It only takes less than a minute to <a @click="scrollToTop()">sign up</a></h1>
           </div>
         </el-col>
       </el-row>
@@ -163,7 +162,7 @@ export default {
 
     }
 
-    @media only screen and (max-width: 768px)  {
+    @media only screen and (max-width: 823px)  {
       &__top-stuff {
         margin-top:40px;
         margin-bottom: 150px;
@@ -184,18 +183,22 @@ export default {
       display: flex;
       align-items: center;
       margin-bottom:120px;
-      padding-left:50px;
-      padding-right:50px;
+      height:100%;
+      width: 100%;
 
       h1 {
         font-weight: 100;
         font-size: 35px;
         cursor: default;
+
+        a {
+          cursor: pointer;
+          color: #3498DB;
+          text-decoration: underline;
+        }
       }
-      .el-button {
-        margin-left: auto;
-          height:50px;
-      }
+
+
     }
   }
 

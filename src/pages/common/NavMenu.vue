@@ -9,7 +9,6 @@
           <li class="hovarable-inv"><router-link to="pricing">Pricing</router-link></li>
           <li class="hovarable-inv"><router-link to="contact">Contact Us</router-link></li>
         </ul>
-        
       </div>
     </div>
   </div>
