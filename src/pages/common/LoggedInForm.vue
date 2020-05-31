@@ -1,10 +1,12 @@
 <template>
   <div class="logged-in-form">
-   <h1 class="auth-title">Save Time and Effort by Making APIs Without Code</h1>
-    <p>You are already logged in as {{authData.profile.email}}, <a href="/ide/">click here</a> to navigate to the IDE</p>
-
-    <p>If you wish to log in as another user <a href="" @click="logOut()">click here</a> to sign out</p>
-    
+    <div class="logged-in-form__message">
+      <h1 class="auth-title">Save Time and Effort by Making APIs Without Code</h1>
+    </div>
+    <div class="logged-in-form__form">
+      <p>You are already logged in as {{authData.profile.email}}, <a href="/ide/">click here</a> to navigate to the IDE</p>
+      <p>If you wish to log in as another user <a href="" @click="logOut()">click here</a> to sign out</p>   
+    </div>
   </div>
 </template>
 
@@ -56,8 +58,13 @@ export default {
 .logged-in-form {
 
   @media only screen and (max-width: 1200px) {   
-      display: flex;
-      justify-content: center;
+      &__form {
+        margin-top:50px;
+
+        p {
+          margin-bottom:30px;
+        }
+      }
   }
   
   a {
