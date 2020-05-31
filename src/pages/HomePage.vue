@@ -4,7 +4,9 @@
       
       <el-row class="home-page__container__top-stuff">
         <el-col :lg="16">
-          <img class="home-page__container__top-stuff__laptop" src="../../public/img/home-laptop.png"/>
+          <div class="home-page__container__top-stuff__laptop">
+            <img  src="../../public/img/home-laptop.png"/>
+          </div>
         </el-col>
         <el-col :lg="8">
           <HomeAuth/>
@@ -26,9 +28,7 @@
           title="Deploy Anywhere" 
           message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
           image="home-feature-3.png"/>
-      </el-row>
 
-      <el-row>
         <FeatureItem 
           title="Monitor in Production" 
           message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
@@ -43,9 +43,8 @@
           title="Automatic Documentation " 
           message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
           image="home-feature-4.png"/>
-
-
       </el-row>
+
 
       <el-row>
         <el-col :span="24">
@@ -64,7 +63,7 @@ import HomeAuth from "./common/HomeAuth";
 
 const FeatureItem = {
   template: `
-      <el-col :lg="8" class="home-feature" >
+      <el-col :sm="12" :lg="8" class="home-feature" >
         <div class="home-feature__container hovarable">
           <h3 class="home-feature__container__title">{{title}}</h3>
           <img class="home-feature__container__image" :src="getImage(image)"/>
@@ -109,6 +108,7 @@ export default {
   text-align: center;
   margin-bottom:60px;
   
+
   &__container {
     width:300px;
     height:430px;
@@ -144,15 +144,41 @@ export default {
     width:100%;
     max-width:1200px;
     cursor: default;
-    &__top-stuff {
-      margin-top:80px;
-      margin-bottom: 150px;
+    
+    @media only screen and (min-width: 1024px) {
       
-      &__laptop {
-        height:490px;
-        opacity:0.8;
+      &__top-stuff {
+        margin-top:80px;
+        &__laptop {
+          display: flex;
+          justify-content: center;
+          img {
+            height:480px;
+            opacity:0.8;
+            margin-bottom: 150px;
+          }
+
+        }
+      }
+
+    }
+
+    @media only screen and (max-width: 768px)  {
+      &__top-stuff {
+        margin-top:40px;
+        margin-bottom: 150px;
+       
+        &__laptop {
+          img {
+            width:100%;
+            opacity:0.8;
+            margin-bottom:50px;
+          }
+
+        }
       }
     }
+
 
     &__signup-action {
       display: flex;

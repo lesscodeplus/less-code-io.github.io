@@ -1,7 +1,9 @@
 <template>
   <div class="sign-up-form">
-    <h1 class="auth-title">Save Time and Effort by Making APIs Without Code</h1>
-    <p>It only takes less than a minute to sign up and try out less-code BETA!!!</p>
+    <div class="sign-up-form__message">
+      <h1 class="auth-title">Save Time and Effort by Making APIs Without Code</h1>
+      <p>It only takes less than a minute to sign up and try out less-code BETA!!!</p>
+    </div>
     <div class="sign-up-form__form">
       <div class="sign-up-form__form__inputs">
         <el-alert v-if="signUpError" :title="signUpError" type="error" effect="dark" :closable="false" show-icon></el-alert>
@@ -119,11 +121,30 @@ export default {
 
 .sign-up-form {
 
+  @media only screen and (min-width: 768px) and (max-width: 1200px) {   
+      display: flex;
+      justify-content: flex-start;
+      &__message {
+        p {
+          padding-right:20px;
+        }
+      }
+  }
+
+  &__message {
+    width:100%;
+    max-width:616px;
+  }
+
   &__form {
+    max-width:400px;
     &__inputs {
-      margin-top: 30px;
-      margin-bottom: 30px;
       
+      @media only screen and (min-width: 1200px) {   
+          margin-top: 30px;
+          margin-bottom: 30px;
+      }
+
       .el-alert {
         margin-bottom:20px;
       }

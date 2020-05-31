@@ -1,7 +1,9 @@
 <template>
   <div class="forgot-password-form">
-    <h1 class="auth-title">Recover password</h1>
-    <p>Just fill in these three fields to start using our API designer</p>
+    <div class="forgot-password-form__message">
+      <h1 class="auth-title">Recover password</h1>
+      <p>Just fill in these three fields to start using our API designer</p>
+    </div>
     <div class="forgot-password-form__form">
       <div class="forgot-password-form__form__inputs">
         <el-alert v-if="signUpError" :title="signUpError" type="error" effect="dark" :closable="false" show-icon></el-alert>
@@ -93,13 +95,37 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
   .forgot-password-form {
+
+    @media only screen and (min-width: 768px) and (max-width: 1200px) {   
+        display: flex;
+        justify-content: flex-start;
+
+      &__message {
+        p {
+          padding-right:20px;
+        }
+      }
+    }
+
+    &__message {
+      width:100%;
+      max-width:616px;
+    }
+
     &__form {
-      
+      max-width:400px;
+
       &__inputs{
+        
+        @media only screen and (min-width: 1200px) {   
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
         .el-alert {
           margin-bottom:20px;
         }
-        margin-top:30px;
+        
         margin-bottom:30px;
       }
     }

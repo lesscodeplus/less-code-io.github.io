@@ -44,6 +44,13 @@ export default {
   @import "./main.scss";
 
   .app {
+
+    @media only screen and (max-width: 1200px) {
+      &__menu {
+        display: none;
+      }
+    }
+    
     &__menu {
       display: aboslute;
       top:0px;
@@ -62,7 +69,6 @@ export default {
       }
       
       &__footer {
-        height:500px;
         background-color: black;
       }
     }

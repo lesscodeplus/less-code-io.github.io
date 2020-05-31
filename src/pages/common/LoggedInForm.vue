@@ -54,6 +54,12 @@ export default {
 <style lang="scss" scoped>
 
 .logged-in-form {
+
+  @media only screen and (max-width: 1200px) {   
+      display: flex;
+      justify-content: center;
+  }
+  
   a {
     color:white;
   }

@@ -16,26 +16,42 @@
         </el-row>
 
         <el-row>
-          <el-col :md="6" class="nav-footer__container__sm-item">
-            <h4>Features</h4>
-            <router-link class="feature-link" to="features" @click.native="$scrollToTop"><p>IDE Features</p></router-link>
-            <router-link class="feature-link" to="pricing" @click.native="$scrollToTop"><p>Compare pricing plans</p></router-link>
+          <el-col :xs="12" :sm="12" :md="6" class="nav-footer__container__sm-item">
+            <div>
+              <div>
+                <h4>Features</h4>
+                <router-link class="feature-link" to="features" @click.native="$scrollToTop"><p>IDE Features</p></router-link>
+                <router-link class="feature-link" to="pricing" @click.native="$scrollToTop"><p>Compare pricing plans</p></router-link>
+              </div>
+            </div>
           </el-col>
-          <el-col :md="6" class="nav-footer__container__sm-item">
-            <h4>Documentation</h4>
-            <router-link class="feature-link" to="tutorials" @click.native="$scrollToTop"><p>Tutorials</p></router-link>
-            <router-link class="feature-link" to="documentation" @click.native="$scrollToTop"><p>Documentation</p></router-link>
+          <el-col :xs="12" :sm="12" :md="6" class="nav-footer__container__sm-item">
+            <div>
+              <div>
+                <h4>Documentation</h4>
+                <router-link class="feature-link" to="tutorials" @click.native="$scrollToTop"><p>Tutorials</p></router-link>
+                <router-link class="feature-link" to="documentation" @click.native="$scrollToTop"><p>Documentation</p></router-link>
+              </div>
+            </div>
           </el-col>
 
-          <el-col :md="6" class="nav-footer__container__sm-item">
-            <h4>Company</h4>
-            <router-link class="feature-link" to="contact" @click.native="$scrollToTop"><p>Contact Us</p></router-link>
+          <el-col :xs="12" :sm="12" :md="6" class="nav-footer__container__sm-item">
+            <div>
+              <div>
+                <h4>Company</h4>
+                <router-link class="feature-link" to="contact" @click.native="$scrollToTop"><p>Contact Us</p></router-link>
+              </div>
+            </div>
           </el-col>
 
-          <el-col :md="6" class="nav-footer__container__sm-item">
-            <h4>Legal</h4>
-            <router-link class="feature-link" to="privacy" @click.native="$scrollToTop"><p>Privacy Policy</p></router-link>
-            <router-link class="feature-link" to="terms" @click.native="$scrollToTop"><p>Terms of Service</p></router-link>
+          <el-col :xs="12" :sm="12" :md="6" class="nav-footer__container__sm-item">
+            <div>
+                <div>
+                  <h4>Legal</h4>
+                  <router-link class="feature-link" to="privacy" @click.native="$scrollToTop"><p>Privacy Policy</p></router-link>
+                  <router-link class="feature-link" to="terms" @click.native="$scrollToTop"><p>Terms of Service</p></router-link>
+                </div>
+            </div>
           </el-col>
 
         </el-row>
@@ -72,11 +88,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
     .nav-footer {
+      
       height:100%;
       width:100%;
 
       display: flex;
       justify-content: center;
+      
       
       h4 {
         opacity: 0.5;
@@ -108,7 +126,20 @@ export default {
         }
 
         &__sm-item{
-          font-size:14px;
+          div {
+            width:100%;
+            display: flex;
+            justify-content: center;
+            
+            div{
+              width:150px;
+              height:150px;
+              display: block;
+              margin-left: 20px;
+              font-size:14px;
+            }
+
+          }
         }
 
         &__social{

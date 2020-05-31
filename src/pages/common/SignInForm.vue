@@ -1,7 +1,9 @@
 <template>
   <div class="sign-in-form">
-    <h1 class="auth-title">Sign In</h1>
-    <p>Please enter your email and password</p>
+    <div class="sign-in-form__message">
+      <h1 class="auth-title">Sign In</h1>
+      <p>Please enter your email and password</p>
+    </div>
     <div class="sign-in-form__form">
       <div class="sign-in-form__form__inputs">
         <el-alert v-if="signUpError" :title="signUpError" type="error" effect="dark" :closable="false" show-icon></el-alert>
@@ -73,13 +75,29 @@ export default {
 <style lang="scss" scoped>
     .sign-in-form {
 
+      @media only screen and (min-width: 768px) and (max-width: 1200px) {  
+          display: flex;
+          justify-content: flex-start;
+      }
+
+      &__message {
+        width:100%;
+        max-width:616px;
+      }
+
       &__form {
-        
+        max-width:400px;
         &__inputs {
+          
+          @media only screen and (min-width: 1200px) {   
+              margin-top: 30px;
+              margin-bottom: 30px;
+          }
+
           .el-alert {
             margin-bottom:20px;
           }
-          margin-top:30px;
+          
           margin-bottom:30px;
         }
 
