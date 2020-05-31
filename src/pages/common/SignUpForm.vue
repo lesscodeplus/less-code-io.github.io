@@ -21,10 +21,10 @@
             <p> By creating an account, you are agreeing to our <router-link class="auth-link" to="terms">Terms of Service</router-link> and <router-link class="auth-link" to="privacy">Privacy Policy.</router-link> </p>    
           </el-form-item>
           <el-form-item>
-            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptcha" @verify="onRecaptchaVerified" v-show="formValidated" >
+            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptcha" @verify="onRecaptchaVerified" v-show="!recaptchaToken" >
               <el-button type="primary" class="auth-button" v-on:click="onSubmit()">Sign Up</el-button>
             </vue-recaptcha>
-            <el-button  v-show="!formValidated" type="primary" class="auth-button" v-on:click="onSubmit()">Sign Up</el-button>
+            <el-button  v-show="recaptchaToken" type="primary" class="auth-button" v-on:click="onSubmit()">Sign Up</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -57,11 +57,8 @@ export default {
           if (result.error){
             this.signUpError = result.error;
           }else {
-            this.resetForm();
-            this.recaptchaToken = undefined;
-            this.formValidated = false;
-            this.$refs.recaptcha.reset();
-            this.signUpError = undefined;
+            localStorage.setItem("lc_auth",JSON.stringify(result));
+            window.location.href = `/ide/`;
           } 
         }
      

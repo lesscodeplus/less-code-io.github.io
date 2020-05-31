@@ -1,7 +1,6 @@
 <template>
   <div class="app">
-    
-    <div class="app__menu">
+    <div class="app__menu" v-if="!hideHeaderFooter">
       <NavMenu/>
     </div>
 
@@ -9,7 +8,7 @@
       <div class="app__container__page">
         <router-view/>
       </div>
-      <div class="app__container__footer">
+      <div class="app__container__footer" v-if="!hideHeaderFooter">
         <Footer/>
       </div>
     </div>
@@ -26,6 +25,17 @@ export default {
   components: {  
     NavMenu,
     Footer
+  },
+  data(){
+    return {
+      
+    }
+  },
+  computed : {
+    hideHeaderFooter(){
+      const path = this.$route?.path;
+      return path=="/confirm" || path=="/reset-password";
+    }
   }
 }
 </script>

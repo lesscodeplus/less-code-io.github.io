@@ -4,6 +4,7 @@
       <el-row>
         <el-col :sm="12">         
           <div class="contact-page__container__form">
+            <el-alert v-if="signUpError" :title="signUpError" type="error" effect="dark" :closable="false" show-icon></el-alert>
             <el-alert v-if="submitted" title="We have recieved your message, we will go through it and get back to you :) " type="success" effect="dark" :closable="false" show-icon></el-alert>            
             <el-form ref="contactForm" :model="contactForm" :rules="rules" label-width="120px">
               
@@ -17,10 +18,10 @@
                 <el-input type="textarea" :rows="9" placeholder="Message" v-model="contactForm.message"></el-input>
               </el-form-item>
           <el-form-item>
-            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptchaContact" @verify="onRecaptchaVerified" v-show="formValidated" >
+            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptchaContact" @verify="onRecaptchaVerified" v-show="!recaptchaToken" >
               <el-button type="primary" class="auth-button" v-on:click="onSubmit()">Submit</el-button>
             </vue-recaptcha>
-            <el-button  v-show="!formValidated" type="primary" class="auth-button" v-on:click="onSubmit()">Submit</el-button>
+            <el-button  v-show="recaptchaToken" type="primary" class="auth-button" v-on:click="onSubmit()">Submit</el-button>
           </el-form-item>
             </el-form>
           </div>
@@ -81,7 +82,7 @@ export default {
   methods:{
     async submitForm(){
         if (this.formValidated && this.recaptchaToken){
-          const result = await this.$authService.submitContact({recaptchaToken:this.recaptchaToken,data: {...this.$data.form}});
+          const result = await this.$authService.submitContact({recaptchaToken:this.recaptchaToken,data: {...this.$data.contactForm}});
           if (result.error){
             this.signUpError = result.error;
           }else {

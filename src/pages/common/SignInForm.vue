@@ -34,9 +34,9 @@ export default {
         if (result.error){
           this.signUpError = result.error;
         }else {
-          this.resetForm();
-          this.signUpError = undefined;
-        } 
+          localStorage.setItem("lc_auth",JSON.stringify(result));
+          window.location.href = `/ide/`;
+       } 
      
     },
     onSubmit(){

@@ -1,8 +1,13 @@
 <template>
   <div class="home-auth hovarable">
-    <SignUpForm v-if="showForm==0" />
-    <SignInForm v-if="showForm==1"/>
-    <ForgotPasswordForm v-if="showForm==2"/>
+    <div class="home-auth__container" v-if="!authData">
+      <SignUpForm v-if="showForm==0" />
+      <SignInForm v-if="showForm==1"/>
+      <ForgotPasswordForm v-if="showForm==2"/>
+    </div>
+    <div class="home-auth__container" v-if="authData">
+      <LoggedInForm :authData="authData" />
+    </div>
   </div>
 </template>
 
@@ -11,7 +16,7 @@
 import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
 import ForgotPasswordForm from './ForgotPasswordForm';
-
+import LoggedInForm from './LoggedInForm';
 
 export default {
   name: 'HomeAuth',
@@ -19,7 +24,8 @@ export default {
   components:{
     SignUpForm,
     SignInForm,
-    ForgotPasswordForm
+    ForgotPasswordForm,
+    LoggedInForm
   },
   methods: {
         routeChanged(to){
@@ -43,13 +49,20 @@ export default {
       $route (to){
         this.routeChanged(to.fullPath);
       }
+  },
+  beforeMount(){
+       const localStorageItem = localStorage.getItem("lc_auth");
+        if (localStorageItem){
+            this.authData = JSON.parse(localStorageItem);
+        }
   }, 
   created(){
     this.routeChanged(window.location.hash);
   },
   data(){
       return {
-          showForm:0
+          showForm:0,
+          authData: undefined
       }
   }
 }

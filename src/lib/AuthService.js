@@ -27,6 +27,11 @@ class AuthService {
         const result = await this.jsonRpcClient.call(undefined,"AuthService", "submitContact", [recaptchaToken,data]);
         return result.result;
     }
+
+    async confirmAccount({token}){
+        const result = await this.jsonRpcClient.call(undefined,"AuthService", "confirmAccount", [token]);
+        return result.result;
+    }
 }
 
 const AuthServicePlugin  = {

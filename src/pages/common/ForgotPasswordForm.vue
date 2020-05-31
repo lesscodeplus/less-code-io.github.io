@@ -11,10 +11,10 @@
             <el-input placeholder="Email" v-model="form.email"></el-input>
           </el-form-item>
           <el-form-item>
-            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptchaForgot" @verify="onRecaptchaVerified" v-show="formValidated" >
+            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptchaForgot" @verify="onRecaptchaVerified" v-show="!recaptchaToken" >
               <el-button type="primary" class="auth-button" v-on:click="onSubmit()">Reset</el-button>
             </vue-recaptcha>
-            <el-button  v-show="!formValidated" type="primary" class="auth-button" v-on:click="onSubmit()">Reset</el-button>
+            <el-button  v-show="recaptchaToken" type="primary" class="auth-button" v-on:click="onSubmit()">Reset</el-button>
           </el-form-item>
         </el-form>
       </div>

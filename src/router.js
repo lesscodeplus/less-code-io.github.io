@@ -8,6 +8,8 @@ import PricingPage from './pages/PricingPage'
 import ContactPage from './pages/ContactPage'
 import PolicyPage from './pages/PolicyPage'
 import TermsPage from './pages/TermsPage'
+import ConfirmAccountPage from './pages/ConfirmAccountPage'
+import ResetPasswordPage from './pages/ResetPasswordPage'
 
 
 Vue.use(VueRouter)
@@ -20,7 +22,8 @@ const routes = [
   { path: '/contact', component: ContactPage },
   { path: '/privacy', component: PolicyPage },
   { path: '/terms', component: TermsPage },
-  
+  { path: '/confirm', component: ConfirmAccountPage },
+  { path: '/reset-password', component: ResetPasswordPage },
 ]
 
 export default  new VueRouter({
