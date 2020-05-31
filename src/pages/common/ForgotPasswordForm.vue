@@ -58,7 +58,9 @@ export default {
       this.$refs.form_forgot.validate((valid) => {
         if (valid){
           this.formValidated = true;
-          this.$refs.recaptchaForgot.execute();
+          if (!this.recaptchaToken){
+            this.$refs.recaptchaForgot.execute();
+          }
           this.submitForm();
         }
       });

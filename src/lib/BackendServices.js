@@ -23,6 +23,11 @@ class BackendServices {
         return result.result;
     }    
     
+    async resetPassword({token,password}){
+        const result = await this.jsonRpcClient.call(undefined,"AuthService", "resetPassword", [token,password]);
+        return result.result;
+    }    
+
     async submitContact({recaptchaToken,data}){
         const result = await this.jsonRpcClient.call(undefined,"AuthService", "submitContact", [recaptchaToken,data]);
         return result.result;

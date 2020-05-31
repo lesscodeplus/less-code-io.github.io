@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {createCookie} from '../lib/Common';
+import {createCookie,getTokenFromQueryParams} from '../lib/Common';
 
 export default {
   name: 'ConfirmAccountPage',
@@ -18,16 +18,14 @@ export default {
 
   },
   async mounted(){
-    const to = window.location.hash;
-    const queryIndex = to.indexOf("?");
-    if (queryIndex !== -1){
-        const queryParams = to.substring(queryIndex + 1);
-        const token = queryParams.replace("token=","");
+    const token = getTokenFromQueryParams();
+    if (token){
         const result = await this.$backendServices.confirmAccount({token});
         if (!result.error){
           createCookie(result,"/ide/#/profile");
         }
     }
+
     window.location.href = "/";
   }
 }

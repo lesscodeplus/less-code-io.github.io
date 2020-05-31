@@ -73,14 +73,13 @@ export default {
       this.$refs.form_signup.validate((valid) => {
         if (valid){
           this.formValidated = true;
-          this.$refs.recaptcha.execute();
+          if (!this.recaptchaToken){
+            this.$refs.recaptcha.execute();
+          }
           this.submitForm();
         }
       });
-    },
-    resetForm() {
-      this.$refs.form_signup.resetFields();
-    },
+    }
   },
   data(){
 

@@ -104,7 +104,9 @@ export default {
       this.$refs.contactForm.validate((valid) => {
         if (valid){
           this.formValidated = true;
-          this.$refs.recaptchaContact.execute();
+          if (!this.recaptchaToken){
+            this.$refs.recaptchaContact.execute();
+          }
           this.submitForm();
         }
       });

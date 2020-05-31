@@ -46,10 +46,7 @@ export default {
           this.submitForm();
         }
       });
-    },
-    resetForm() {
-      this.$refs.form_signin.resetFields();
-    },
+    }
   },
   data(){
       return {
