@@ -23,7 +23,7 @@ export default {
     if (queryIndex !== -1){
         const queryParams = to.substring(queryIndex + 1);
         const token = queryParams.replace("token=","");
-        const result = await this.$authService.confirmAccount({token});
+        const result = await this.$backendServices.confirmAccount({token});
         if (!result.error){
           createCookie(result,"/ide/#/profile");
         }

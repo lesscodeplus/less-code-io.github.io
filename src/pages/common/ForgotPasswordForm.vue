@@ -36,7 +36,7 @@ export default {
     async submitForm(){
         if (this.formValidated && this.recaptchaToken){
           const host = getHostAndPort();
-          const result = await this.$authService.forgotPassword({host, recaptchaToken:this.recaptchaToken,...this.$data.form});
+          const result = await this.$backendServices.forgotPassword({host, recaptchaToken:this.recaptchaToken,...this.$data.form});
           if (result.error){
             this.signUpError = result.error;
           }else {

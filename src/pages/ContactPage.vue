@@ -82,7 +82,7 @@ export default {
   methods:{
     async submitForm(){
         if (this.formValidated && this.recaptchaToken){
-          const result = await this.$authService.submitContact({recaptchaToken:this.recaptchaToken,data: {...this.$data.contactForm}});
+          const result = await this.$backendServices.submitContact({recaptchaToken:this.recaptchaToken,data: {...this.$data.contactForm}});
           if (result.error){
             this.signUpError = result.error;
           }else {

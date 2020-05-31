@@ -32,7 +32,7 @@ export default {
   props: {},
   methods : {
     async submitForm(){
-        const result = await this.$authService.signIn({...this.$data.form});
+        const result = await this.$backendServices.signIn({...this.$data.form});
         if (result.error){
           this.signUpError = result.error;
         }else {

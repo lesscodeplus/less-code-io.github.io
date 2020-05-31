@@ -1,6 +1,6 @@
 import JsonRpcClient from './JsonRpcClient';
 
-class AuthService {
+class BackendServices {
 
     jsonRpcClient;
 
@@ -36,7 +36,7 @@ class AuthService {
 
 const AuthServicePlugin  = {
     install(Vue) {
-      Vue.prototype.$authService = new AuthService();
+      Vue.prototype.$backendServices = new BackendServices();
     }
 };
   
