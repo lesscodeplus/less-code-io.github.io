@@ -8,7 +8,7 @@ export function getHostAndPort(){
 }
 
 export function createCookie(result, navigateUrl="/ide/"){
-    localStorage.setItem(cookieName,JSON.stringify(result));
+    localStorage.setItem(cookieName,JSON.stringify({result}));
     if (navigateUrl){
         window.location.href = navigateUrl;
     }
@@ -17,7 +17,7 @@ export function createCookie(result, navigateUrl="/ide/"){
 export function checkCookie(){
     const localStorageItem = localStorage.getItem(cookieName);
     if (localStorageItem){
-        return JSON.parse(localStorageItem);
+        return JSON.parse(localStorageItem).result;
     }
 }
 
