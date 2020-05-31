@@ -13,7 +13,7 @@
             <el-input placeholder="Password" v-model="form.password" type="password"></el-input>
             <transition name="fade">
               <div v-if="form.password">
-                <p>Password Strength</p> <el-progress :percentage="progress.percentage" :color="customColorMethod"></el-progress>
+                <p>Password Strength</p> <el-progress :percentage="progress.percentage" :color="getColorForStrength"></el-progress>
               </div>
             </transition>
           </el-form-item>
@@ -37,6 +37,10 @@
 
 <script>
 import VueRecaptcha from 'vue-recaptcha';
+import {
+  getHostAndPort,createCookie,
+  passwordValidator,getColorForStrength,showPasswordStrength
+} from '../../lib/Common';
 
 export default {
   name: 'SignUpForm',
@@ -44,21 +48,19 @@ export default {
   components: { VueRecaptcha },
   watch:{
     ["form.password"](val) {
-      this.progress.percentage = this.getPasswordForProgress(val);
+      this.progress.percentage = showPasswordStrength(val);
     }
   },
   methods : {
+    getColorForStrength,
     async submitForm(){
         if (this.formValidated && this.recaptchaToken){
-          const l = window.location;
-          const port = l.port ? `:${l.port}`:"";
-          const host = `${l.protocol}//${l.hostname}${port}`;
+          const host = getHostAndPort();
           const result = await this.$authService.signUp({host, recaptchaToken:this.recaptchaToken,...this.$data.form});
           if (result.error){
             this.signUpError = result.error;
           }else {
-            localStorage.setItem("lc_auth",JSON.stringify(result));
-            window.location.href = `/ide/`;
+            createCookie(result);
           } 
         }
      
@@ -79,76 +81,8 @@ export default {
     resetForm() {
       this.$refs.form_signup.resetFields();
     },
-    scorePassword(pass) {
-        let score = 0;
-        if (!pass)
-            return score;
-
-        let letters = new Object();
-        for (let i=0; i<pass.length; i++) {
-            letters[pass[i]] = (letters[pass[i]] || 0) + 1;
-            score += 5.0 / letters[pass[i]];
-        }
-
-        const variations = {
-            digits: /\d/.test(pass),
-            lower: /[a-z]/.test(pass),
-            upper: /[A-Z]/.test(pass),
-            nonWords: /\W/.test(pass),
-        }
-
-        let variationCount = 0;
-        for (var check in variations) {
-            variationCount += (variations[check] == true) ? 1 : 0;
-        }
-        score += (variationCount - 1) * 10;
-
-        return parseInt(score);
-    },
-    checkPassStrength(pass) {
-        var score = this.scorePassword(pass);
-        if (score > 80)
-            return "strong";
-        if (score > 60)
-            return "good";
-        if (score >= 30)
-            return "weak";
-
-        return "";
-    },
-    customColorMethod(percentage) {
-      if (percentage < 30) {
-        return '#FF4949';
-      } else if (percentage < 70) {
-        return '#e6a23c';
-      } else {
-        return '#67c23a';
-      }
-    },
-    getPasswordForProgress(pass){
-      var score = this.scorePassword(pass);
-      if (score > 70){
-        return 100;
-      }else {
-        return Math.round(score / 70  * 100);
-      }
-      
-    }
   },
   data(){
-
-    const validatePass = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('Please enter a password'));
-      } else {
-        const strength = this.getPasswordForProgress(value);
-        if (strength > 70){
-          callback();
-        }else {
-          callback(new Error('Password should be at least 70% strong'));
-        }
-      }
-    };
 
     return {
       form: {
@@ -164,7 +98,7 @@ export default {
             { type: 'email', message: 'Please enter a valid email address', trigger: 'blur' },
           ],
           password: [
-            { validator: validatePass, trigger: 'blur' }
+            { validator: passwordValidator, trigger: 'blur' }
           ]
       },
       progress: {

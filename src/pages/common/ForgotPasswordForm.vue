@@ -27,6 +27,7 @@
 <script>
 
 import VueRecaptcha from 'vue-recaptcha';
+import {getHostAndPort} from '../../lib/Common';
 
 export default {
   name: 'ForgotPasswordForm',
@@ -34,9 +35,7 @@ export default {
   methods: {
     async submitForm(){
         if (this.formValidated && this.recaptchaToken){
-          const l = window.location;
-          const port = l.port ? `:${l.port}`:"";
-          const host = `${l.protocol}//${l.hostname}${port}`;
+          const host = getHostAndPort();
           const result = await this.$authService.forgotPassword({host, recaptchaToken:this.recaptchaToken,...this.$data.form});
           if (result.error){
             this.signUpError = result.error;
@@ -56,7 +55,6 @@ export default {
         this.submitForm();
     },
     onSubmit(){
-      console.log(this.$refs);
       this.$refs.form_forgot.validate((valid) => {
         if (valid){
           this.formValidated = true;

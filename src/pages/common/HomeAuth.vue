@@ -17,6 +17,7 @@ import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
 import ForgotPasswordForm from './ForgotPasswordForm';
 import LoggedInForm from './LoggedInForm';
+import {checkCookie} from '../../lib/Common';
 
 export default {
   name: 'HomeAuth',
@@ -51,10 +52,7 @@ export default {
       }
   },
   beforeMount(){
-       const localStorageItem = localStorage.getItem("lc_auth");
-        if (localStorageItem){
-            this.authData = JSON.parse(localStorageItem);
-        }
+    this.authData = checkCookie();
   }, 
   created(){
     this.routeChanged(window.location.hash);

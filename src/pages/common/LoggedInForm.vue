@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import {deleteCookie} from '../../lib/Common';
 
 export default {
   name: 'LoggedInForm',
@@ -17,8 +18,7 @@ export default {
   },
   methods : {
     logOut(){
-        localStorage.removeItem("lc_auth");
-        window.location.reload();
+      deleteCookie();
     }
   },
   data(){

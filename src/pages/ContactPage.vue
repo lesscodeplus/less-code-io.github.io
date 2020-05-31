@@ -101,7 +101,6 @@ export default {
         this.submitForm();
     },
     onSubmit(){
-      console.log(this.$refs);
       this.$refs.contactForm.validate((valid) => {
         if (valid){
           this.formValidated = true;

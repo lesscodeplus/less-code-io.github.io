@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import {createCookie} from '../lib/Common';
 
 export default {
   name: 'ConfirmAccountPage',
@@ -24,8 +25,7 @@ export default {
         const token = queryParams.replace("token=","");
         const result = await this.$authService.confirmAccount({token});
         if (!result.error){
-          localStorage.setItem("lc_auth",JSON.stringify(result));
-          window.location.href = "/ide/#/profile";
+          createCookie(result,"/ide/#/profile");
         }
     }
     window.location.href = "/";

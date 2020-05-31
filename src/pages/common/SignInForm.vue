@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import {createCookie} from '../../lib/Common';
+
 export default {
   name: 'SignInForm',
   props: {},
@@ -34,8 +36,7 @@ export default {
         if (result.error){
           this.signUpError = result.error;
         }else {
-          localStorage.setItem("lc_auth",JSON.stringify(result));
-          window.location.href = `/ide/`;
+          createCookie(result);
        } 
      
     },
