@@ -1,6 +1,6 @@
 <template>
   <div class="account-page">
-      <el-dialog top="80px" custom-class="account-page__cropper-dialog" :visible.sync="dialogVisible" :show-close="true">
+      <el-dialog top="80px" custom-class="account-page__cropper-dialog" :visible.sync="dialogVisible" :show-close="true" :close-on-click-modal="false">
           <vue-cropper v-if="cropper.tempPic" ref="cropper" :src="cropper.tempPic" 
             :aspectRatio = "1"
             :containerStyle="cropper.containerStyle" 
