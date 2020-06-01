@@ -26,7 +26,7 @@ import {
   getTokenFromQueryParams,
   getColorForStrength,
   showPasswordStrength,
-  passwordValidator
+  passwordProp
 } from '../lib/Common';
 
 export default {
@@ -39,9 +39,7 @@ export default {
         password: ""
       },
       rules: {
-          password: [
-            { validator: passwordValidator, trigger: 'blur' }
-          ]
+          password: [passwordProp()]
       },
       progress: {
         percentage: 0

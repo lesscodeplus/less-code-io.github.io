@@ -1,8 +1,10 @@
 import JsonRpcClient from './JsonRpcClient';
+import {checkCookie} from './Common';
 
 class BackendServices {
 
     jsonRpcClient;
+    authData;
 
     constructor(){
         this.jsonRpcClient = new JsonRpcClient("UiServices");
@@ -41,7 +43,9 @@ class BackendServices {
 
 const AuthServicePlugin  = {
     install(Vue) {
-      Vue.prototype.$backendServices = new BackendServices();
+        const serviceObj = new BackendServices();
+        serviceObj.authData = checkCookie();
+        Vue.prototype.$backendServices = serviceObj;
     }
 };
   

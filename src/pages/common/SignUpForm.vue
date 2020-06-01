@@ -23,10 +23,10 @@
             <p> By creating an account, you are agreeing to our <router-link class="auth-link" to="terms">Terms of Service</router-link> and <router-link class="auth-link" to="privacy">Privacy Policy.</router-link> </p>    
           </el-form-item>
           <el-form-item>
-            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptcha" @verify="onRecaptchaVerified" v-show="!recaptchaToken" >
+            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptcha" @verify="onRecaptchaVerified" v-show="!recaptchaToken && formValidated" >
               <el-button type="primary" class="auth-button" v-on:click="onSubmit()">Sign Up</el-button>
             </vue-recaptcha>
-            <el-button  v-show="recaptchaToken" type="primary" class="auth-button" v-on:click="onSubmit()">Sign Up</el-button>
+            <el-button  v-show="!(!recaptchaToken && formValidated)" type="primary" class="auth-button" v-on:click="onSubmit()">Sign Up</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -41,7 +41,8 @@
 import VueRecaptcha from 'vue-recaptcha';
 import {
   getHostAndPort,createCookie,
-  passwordValidator,getColorForStrength,showPasswordStrength
+  getColorForStrength,showPasswordStrength,
+  requiredProp,emailProp,passwordProp
 } from '../../lib/Common';
 
 export default {
@@ -79,6 +80,8 @@ export default {
             this.$refs.recaptcha.execute();
           }
           this.submitForm();
+        }else {
+          this.formValidated = false;
         }
       });
     }
@@ -94,13 +97,8 @@ export default {
       formValidated:false,
       recaptchaToken:undefined,
       rules: {
-          email: [
-            { required: true, message: 'Email address is required', trigger: 'blur' },
-            { type: 'email', message: 'Please enter a valid email address', trigger: 'blur' },
-          ],
-          password: [
-            { validator: passwordValidator, trigger: 'blur' }
-          ]
+          email: [requiredProp('Email address is required'),emailProp()],
+          password: [passwordProp()]
       },
       progress: {
         percentage: 0

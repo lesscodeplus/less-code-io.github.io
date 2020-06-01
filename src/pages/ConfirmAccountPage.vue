@@ -22,7 +22,7 @@ export default {
     if (token){
         const result = await this.$backendServices.confirmAccount({token});
         if (!result.error){
-          createCookie(result,"/ide/#/profile");
+          createCookie(result,"/#/account");
           return;
         }
     }

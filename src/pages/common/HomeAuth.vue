@@ -17,7 +17,6 @@ import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
 import ForgotPasswordForm from './ForgotPasswordForm';
 import LoggedInForm from './LoggedInForm';
-import {checkCookie} from '../../lib/Common';
 
 export default {
   name: 'HomeAuth',
@@ -52,7 +51,7 @@ export default {
       }
   },
   beforeMount(){
-    this.authData = checkCookie();
+    this.authData = this.$backendServices.authData;
   }, 
   created(){
     this.routeChanged(window.location.hash);

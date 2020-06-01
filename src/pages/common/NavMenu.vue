@@ -8,6 +8,8 @@
           <li class="hovarable-inv"><router-link to="documentation">Documentation</router-link></li>
           <li class="hovarable-inv"><router-link to="pricing">Pricing</router-link></li>
           <li class="hovarable-inv"><router-link to="contact">Contact Us</router-link></li>
+          <li v-if="authData" class="hovarable-inv"><a href="/ide/#/">IDE</a></li>
+          <li v-if="authData" class="hovarable-inv"><router-link to="account">Account</router-link></li>
         </ul>
       </div>
     </div>
@@ -17,7 +19,12 @@
 <script>
 export default {
   name: 'NavMenu',
-  props: {}
+  props: {},
+  data(){
+    return {
+      authData: this.$backendServices.authData
+    }
+  }
 }
 </script>
 

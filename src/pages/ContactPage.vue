@@ -18,10 +18,10 @@
                 <el-input type="textarea" :rows="9" placeholder="Message" v-model="contactForm.message"></el-input>
               </el-form-item>
           <el-form-item>
-            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptchaContact" @verify="onRecaptchaVerified" v-show="!recaptchaToken" >
+            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptchaContact" @verify="onRecaptchaVerified" v-show="!recaptchaToken && formValidated" >
               <el-button type="primary" class="auth-button" v-on:click="onSubmit()">Submit</el-button>
             </vue-recaptcha>
-            <el-button  v-show="recaptchaToken" type="primary" class="auth-button" v-on:click="onSubmit()">Submit</el-button>
+            <el-button  v-show="!(!recaptchaToken && formValidated)" type="primary" class="auth-button" v-on:click="onSubmit()">Submit</el-button>
           </el-form-item>
             </el-form>
           </div>
@@ -49,6 +49,7 @@
 
 <script>
 import VueRecaptcha from 'vue-recaptcha';
+import {requiredProp,emailProp} from '../lib/Common';
 
 export default {
   name: 'ContactPage',
@@ -66,16 +67,9 @@ export default {
         message:null
       },
       rules: {
-          name: [
-            { required: true, message: 'Name is required', trigger: 'blur' }
-          ],
-          email: [
-            { required: true, message: 'Email address is required', trigger: 'blur' },
-            { type: 'email', message: 'Please enter a valid email address', trigger: 'blur' },
-          ],
-          message: [
-            { required: true, message: 'Messsage is required', trigger: 'blur' }
-          ]
+          name: [requiredProp('Name is required')],
+          email: [requiredProp('Email address is required'),emailProp()],
+          message: [requiredProp('Messsage is required')]
       }
     }
   },
@@ -108,6 +102,8 @@ export default {
             this.$refs.recaptchaContact.execute();
           }
           this.submitForm();
+        }else {
+          this.formValidated = false;
         }
       });
     },
@@ -133,8 +129,6 @@ export default {
 
       .el-alert {
         margin-bottom:20px;
-        margin-left:120px;
-        width:440px;
       }
     }
 

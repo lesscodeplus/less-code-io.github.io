@@ -3,12 +3,12 @@
     <footer class="cookies" v-if="visible">
         <div class="cookies__container">
           <el-row>
-            <el-col :span="18">
+            <el-col :sm="12">
               <p>We use Cookies to enhance your user experience</p>
               <p>for a complete overview of all cookes used, Please see our <router-link class="auth-link" to="privacy">privacy policy</router-link></p>
             </el-col>
           
-            <el-col :span="6" class="cookies__container__buttons">
+            <el-col :sm="12" class="cookies__container__buttons">
               <el-button @click="createCookie" type="primary">Accept</el-button>
               <el-button @click="visible=false">Reject</el-button>
             </el-col>
@@ -54,7 +54,6 @@ export default {
 
   .cookies {
 
-      height:100px;
       width:100%;
       background-color: rgba(0,0,0,0.8);
       font-size:13px;
@@ -63,8 +62,9 @@ export default {
       z-index: 1000;
       display: flex;
       justify-content: center;
-      
+      padding:10px;
       align-items: center;
+      
       p {
         margin:5px;
       }
@@ -76,7 +76,12 @@ export default {
         &__buttons{
           display: flex;
           align-items: center;
-          justify-content: flex-end;
+          justify-content: center;
+          
+          @media only screen and (max-width: 812px)  {   
+            margin-top:20px;
+          }
+
           button{
             width:120px;
           }

@@ -13,10 +13,10 @@
             <el-input placeholder="Email" v-model="form.email"></el-input>
           </el-form-item>
           <el-form-item>
-            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptchaForgot" @verify="onRecaptchaVerified" v-show="!recaptchaToken" >
+            <vue-recaptcha sitekey="6Lfvp_0UAAAAACUAHEN-JgRj_Lqa054XkjG5Dto0" ref="recaptchaForgot" @verify="onRecaptchaVerified" v-show="!recaptchaToken && formValidated" >
               <el-button type="primary" class="auth-button" v-on:click="onSubmit()">Reset</el-button>
             </vue-recaptcha>
-            <el-button  v-show="recaptchaToken" type="primary" class="auth-button" v-on:click="onSubmit()">Reset</el-button>
+            <el-button  v-show="!(!recaptchaToken && formValidated)" type="primary" class="auth-button" v-on:click="onSubmit()">Reset</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -29,7 +29,7 @@
 <script>
 
 import VueRecaptcha from 'vue-recaptcha';
-import {getHostAndPort} from '../../lib/Common';
+import {getHostAndPort,requiredProp,emailProp} from '../../lib/Common';
 
 export default {
   name: 'ForgotPasswordForm',
@@ -64,6 +64,8 @@ export default {
             this.$refs.recaptchaForgot.execute();
           }
           this.submitForm();
+        }else {
+          this.formValidated = false;
         }
       });
     },
@@ -74,19 +76,16 @@ export default {
   props: { },
   data(){
       return {
-      form: {
-        email: "",
-      },
-      signUpError: undefined,
-      formValidated:false,
-      recaptchaToken:undefined,
-      submitted:false,
-      rules: {
-          email: [
-            { required: true, message: 'Email address is required', trigger: 'blur' },
-            { type: 'email', message: 'Please enter a valid email address', trigger: 'blur' },
-          ]
-      },
+        form: {
+          email: "",
+        },
+        signUpError: undefined,
+        formValidated:false,
+        recaptchaToken:undefined,
+        submitted:false,
+        rules: {
+            email: [requiredProp('Email address is required'),emailProp()]
+        }
       }
   }
 }

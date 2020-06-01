@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import HomePage from './pages/HomePage'
-import FeaturesPage from './pages/FeaturesPage'
-import DocPage from './pages/DocPage'
-import PricingPage from './pages/PricingPage'
-import ContactPage from './pages/ContactPage'
-import PolicyPage from './pages/PolicyPage'
-import TermsPage from './pages/TermsPage'
-import ConfirmAccountPage from './pages/ConfirmAccountPage'
-import ResetPasswordPage from './pages/ResetPasswordPage'
-
+const HomePage = () => import('./pages/HomePage');
+const FeaturesPage = () => import('./pages/FeaturesPage');
+const DocPage = () => import('./pages/DocPage');
+const PricingPage = () => import('./pages/PricingPage');
+const ContactPage = () => import('./pages/ContactPage');
+const PolicyPage = () => import('./pages/PolicyPage');
+const TermsPage = () => import('./pages/TermsPage');
+const ConfirmAccountPage = () => import('./pages/ConfirmAccountPage');
+const ResetPasswordPage = () => import('./pages/ResetPasswordPage');
+const AccountPage = () => import('./pages/AccountPage');
 
 Vue.use(VueRouter)
 
@@ -24,6 +24,7 @@ const routes = [
   { path: '/terms', component: TermsPage },
   { path: '/confirm', component: ConfirmAccountPage },
   { path: '/reset-password', component: ResetPasswordPage },
+  { path: '/account', component: AccountPage },
 ]
 
 export default  new VueRouter({

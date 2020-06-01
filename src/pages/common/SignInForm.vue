@@ -28,6 +28,7 @@
 
 <script>
 import {createCookie} from '../../lib/Common';
+import {requiredProp,emailProp} from '../../lib/Common';
 
 export default {
   name: 'SignInForm',
@@ -57,13 +58,8 @@ export default {
           password: ""
         },
         rules: {
-            email: [
-              { required: true, message: 'Email address is required', trigger: 'blur' },
-              { type: 'email', message: 'Please enter a valid email address', trigger: 'blur' },
-            ],
-            password: [
-              { required: true, message: 'Password is required', trigger: 'blur' },
-            ]
+            email: [requiredProp('Email address is required'),emailProp()],
+            password: [requiredProp('Password is required')]
         },
         signUpError: undefined
       }
