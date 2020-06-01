@@ -8,15 +8,15 @@
     
     <div class="nav-menu-mobile__drawer">
       <el-drawer :wrapperClosable="true" :visible.sync="drawer" direction="ltr" custom-class="nav-menu-mobile__drawer__drawer" size="100%">
-          <div slot="title" @click="drawer=false"><router-link to="/"><img src="../../assets/logo.png"/></router-link></div>
+          <div slot="title" @click="drawer=false;$scrollToTop();"><router-link to="/"><img src="../../assets/logo.png"/></router-link></div>
           <ul>
-            <li class="hovarable-inv" @click="drawer=false"><router-link to="/">Home</router-link></li>
-            <li class="hovarable-inv" @click="drawer=false"><router-link to="features">Features</router-link></li>
-            <li class="hovarable-inv" @click="drawer=false"><router-link to="documentation">Documentation</router-link></li>
-            <li class="hovarable-inv" @click="drawer=false"><router-link to="pricing">Pricing</router-link></li>
-            <li class="hovarable-inv" @click="drawer=false"><router-link to="contact">Contact Us</router-link></li>
+            <li class="hovarable-inv" @click="drawer=false;$scrollToTop();"><router-link to="/">Home</router-link></li>
+            <li class="hovarable-inv" @click="drawer=false;$scrollToTop();"><router-link to="features">Features</router-link></li>
+            <li class="hovarable-inv" @click="drawer=false;$scrollToTop();"><router-link to="documentation">Documentation</router-link></li>
+            <li class="hovarable-inv" @click="drawer=false;$scrollToTop();"><router-link to="pricing">Pricing</router-link></li>
+            <li class="hovarable-inv" @click="drawer=false;$scrollToTop();"><router-link to="contact">Contact Us</router-link></li>
             <li v-if="authData" class="hovarable-inv"><a href="/ide/#/">IDE</a></li>
-            <li v-if="authData"  @click="drawer=false" class="hovarable-inv"><router-link to="account">Account</router-link></li>
+            <li v-if="authData"  @click="drawer=false;$scrollToTop();" class="hovarable-inv"><router-link to="account">Account</router-link></li>
           </ul>
       </el-drawer>
     </div>

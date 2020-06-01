@@ -39,6 +39,11 @@ class BackendServices {
         const result = await this.jsonRpcClient.call(undefined,"AuthService", "confirmAccount", [token]);
         return result.result;
     }
+
+    async saveProfile(profile){
+        const result = await this.jsonRpcClient.call(this.authData.token,"ProfileService", "saveProfile", [profile]);
+        return result.result;
+    }
 }
 
 const AuthServicePlugin  = {

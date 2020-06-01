@@ -9,8 +9,12 @@ import {
     Progress,
     Alert,
     Dialog,
-    Drawer
+    Drawer,
+    DatePicker,
+    Select,
+    Option
 } from 'element-ui'
+
 
 
 Vue.use(Row);
@@ -23,3 +27,6 @@ Vue.use(Progress);
 Vue.use(Alert);
 Vue.use(Dialog);
 Vue.use(Drawer);
+Vue.use(DatePicker);
+Vue.use(Option);
+Vue.use(Select);

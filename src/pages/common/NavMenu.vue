@@ -31,10 +31,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
   .nav-menu {
+    position: fixed;
+    z-index: 40;
     background-color: rgb(36, 36, 36);
     padding-left: 20px;
     padding-right: 20px;
     height:80px;
+    width: 100%;
     display: flex;
     align-content: center;
 
@@ -55,6 +58,7 @@ export default {
            color: white; 
            text-decoration: none;
           }
+
         }
       }
 

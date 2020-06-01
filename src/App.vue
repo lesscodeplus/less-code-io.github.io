@@ -65,9 +65,14 @@ export default {
     &__menu {
       display: aboslute;
       top:0px;
+      height:80px;
       box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
     }
     
+    &__menu-mobile {
+      height:40px;
+    }
+
     &__container {
       overflow: auto;
       
