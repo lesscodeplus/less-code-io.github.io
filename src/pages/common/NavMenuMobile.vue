@@ -13,6 +13,7 @@
             <li class="hovarable-inv" @click="drawer=false;$scrollToTop();"><router-link to="/">Home</router-link></li>
             <li class="hovarable-inv" @click="drawer=false;$scrollToTop();"><router-link to="features">Features</router-link></li>
             <li class="hovarable-inv" @click="drawer=false;$scrollToTop();"><router-link to="documentation">Documentation</router-link></li>
+            <li class="hovarable-inv" @click="drawer=false;$scrollToTop();"><router-link to="download">Download</router-link></li>
             <li class="hovarable-inv" @click="drawer=false;$scrollToTop();"><router-link to="pricing">Pricing</router-link></li>
             <li class="hovarable-inv" @click="drawer=false;$scrollToTop();"><router-link to="contact">Contact Us</router-link></li>
             <li v-if="authData" class="hovarable-inv"><a href="/ide/#/">IDE</a></li>

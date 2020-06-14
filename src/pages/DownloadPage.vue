@@ -1,8 +1,7 @@
 <template>
-  <div class="doc-page">
+  <div class="download-page">
       <div>
-        <h1>We are in the process of preparing awesome tutrials and documentation</h1>
-        <h1>You can still sign up and experiment with our IDE 😊</h1>
+        <h1>Downloads!!! 😊</h1>
       </div>
   </div>
 </template>
@@ -10,7 +9,7 @@
 <script>
 
 export default {
-  name: 'DocPage',
+  name: 'DownloadPage',
   components : {},
   props: {}
 }
@@ -18,7 +17,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.doc-page {
+.download-page {
   height:calc(100vh - 100px);
   width:100%;
   display: flex;

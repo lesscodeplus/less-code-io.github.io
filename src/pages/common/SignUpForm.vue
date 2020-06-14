@@ -1,7 +1,7 @@
 <template>
   <div class="sign-up-form">
     <div class="sign-up-form__message">
-      <h1 class="auth-title">Save Time and Effort by Making APIs Without Code</h1>
+      <h1 class="auth-title">Reduce Up to 90% of your API development time</h1>
       <p>It only takes less than a minute to sign up and try out less-code BETA!!!</p>
     </div>
     <div class="sign-up-form__form">

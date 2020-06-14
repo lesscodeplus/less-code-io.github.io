@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 const HomePage = () => import('./pages/HomePage');
 const FeaturesPage = () => import('./pages/FeaturesPage');
 const DocPage = () => import('./pages/DocPage');
+const DownloadPage = () => import('./pages/DownloadPage');
 const PricingPage = () => import('./pages/PricingPage');
 const ContactPage = () => import('./pages/ContactPage');
 const PolicyPage = () => import('./pages/PolicyPage');
@@ -18,6 +19,7 @@ const routes = [
   { path: '/', component: HomePage },
   { path: '/features', component: FeaturesPage },
   { path: '/documentation', component: DocPage },
+  { path: '/download', component: DownloadPage },
   { path: '/pricing', component: PricingPage },
   { path: '/contact', component: ContactPage },
   { path: '/privacy', component: PolicyPage },

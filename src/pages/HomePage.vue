@@ -15,33 +15,33 @@
 
       <el-row>
         <FeatureItem 
-          title="Make APIs Without Code" 
-          message="Develop REST APIs without coding with our IDE. Define your business logic with 'blocks'" 
+          title="Low-code and No-code API development" 
+          message="Define your business logic with 'blocks'. Still you are not limited by our features, You can always code your logic with Python." 
           image="home-feature-1.png"/>
 
         <FeatureItem 
           title="Connect to Databases" 
-          message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
+          message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server." 
           image="home-feature-2.png"/>
 
         <FeatureItem 
           title="Deploy Anywhere" 
-          message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
+          message="After you develop your APIs in our designer, you can compile the API as a 'Less-Code blueprint' which can be deployed anywhere with the Less-Code Engine."
           image="home-feature-3.png"/>
 
         <FeatureItem 
           title="Monitor in Production" 
-          message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
+          message="Easily monitor your API in production with tools such as Kibana, or Grafana. And you can get alerts to Slack." 
           image="home-feature-6.png"/>
 
         <FeatureItem 
           title="Integrate with Other Systems" 
-          message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
+          message="Less-code doesn't run in isolation, it always comes with the capability to integrate with systems using REST or AMQP." 
           image="home-feature-5.png"/>
 
         <FeatureItem 
-          title="Automatic Documentation " 
-          message="Use our schema designer and develop your APIs to manipulate data in MySQL and SQL Server" 
+          title="Auto Swaggerdoc Generation " 
+          message="You don't have to seperately write code or use any other 3rd party tool to generate swagger doc for your APIs. Less-code generates your API documantation automatically." 
           image="home-feature-4.png"/>
       </el-row>
 

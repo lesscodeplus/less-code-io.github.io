@@ -3,7 +3,7 @@
     <div class="pricing-page__container">
       <el-row  class="pricing-page__container__header">
         <el-col :span="12"><label>Feature</label></el-col>
-        <el-col :span="6"><label>Free</label></el-col>
+        <el-col :span="6"><label>BETA</label></el-col>
         <el-col :span="6"><label>Enterprise</label></el-col>
       </el-row>
       <el-row v-for="item of items" :key="item.feature" class="pricing-page__container__row">
@@ -31,19 +31,18 @@ export default {
     return {
       items: [
         {seperator:true},
-        {feature: "Number of APIs",free: "Unlimited",enterprise:"Unlimited"},
-        {feature: "Public Swagger URL",free: "YES",enterprise:"YES"},
-        {feature: "Sandbox Hosting",free: "YES",enterprise:"YES"},
-        {feature: "Web Hook Deployment",free: "YES",enterprise:"YES"},
-        {feature: "Client Code Generation",free: "YES",enterprise:"YES"},
-        {feature: "Databases",free: "MySQL / MSSQL",enterprise:"MySQL / MSSQL"},
-        {feature: "Swagger Documentation Generator",free: "YES",enterprise:"YES"},
-        {feature: "Python Scripting",free: "YES",enterprise:"YES"},
+        {feature: "Number of APIs",free: "Unlimited",enterprise:"Coming Soon"},
+        {feature: "Public Swagger URL",free: "YES",enterprise:"Coming Soon"},
+        {feature: "Sandbox Hosting",free: "YES",enterprise:"Coming Soon"},
+        {feature: "Web Hook Deployment",free: "YES",enterprise:"Coming Soon"},
+        {feature: "Client Code Generation",free: "YES",enterprise:"Coming Soon"},
+        {feature: "Databases",free: "MySQL / MSSQL",enterprise:"Coming Soon"},
+        {feature: "Swagger Documentation Generator",free: "YES",enterprise:"Coming Soon"},
+        {feature: "Python Scripting",free: "YES",enterprise:"Coming Soon"},
         {seperator:true},
-        {feature: "Number of Environments",free: "1",enterprise:"Unlimited"},
-        {feature: "Number of Blocks",free: "50",enterprise:"Unlimited"},
-        {feature: "Number of Reusable Modules",free: "10",enterprise:"Unlimited"},
-        {feature: "Sandbox Storage",free: "50 MB",enterprise:"Unlimited"},
+        {feature: "Number of Environments",free: "1",enterprise:"Coming Soon"},
+        {feature: "Number of Blocks",free: "50",enterprise:"Coming Soon"},
+        {feature: "Number of Reusable Modules",free: "10",enterprise:"Coming Soon"},
         {seperator:true},
         {feature: "AWS Lambda Deployment",free: "Coming Soon",enterprise:"Coming Soon"},
         {feature: "Azure Cloud Functions Deployment",free: "Coming Soon",enterprise:"Coming Soon"},
