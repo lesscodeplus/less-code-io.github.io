@@ -1,1 +1,0 @@
-{"jsonrpc":"2.0","result":[{"caption":"Python Scripts","key":"python","templates":[{"id":"blank","title":"Blank Script","icon":"python-brands.svg","config":[{"key":"name","caption":"Name","type":"text","default":"test.py"}],"rules":{"name":[{"required":true,"message":"Please enter Name","trigger":"blur"}]}}]}],"id":"F6D31AB6985A4CF1"}
