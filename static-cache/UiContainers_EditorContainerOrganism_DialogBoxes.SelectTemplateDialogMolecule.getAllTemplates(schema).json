@@ -1,0 +1,1 @@
+{"jsonrpc":"2.0","result":[{"caption":"Schemas","key":"schema","templates":[{"id":"blank","title":"Blank Schema","icon":"schema.svg","config":[{"key":"name","caption":"Name","type":"text","default":"schema"}],"rules":{"name":[{"required":true,"message":"Please enter schema name","trigger":"blur"}]}}]}],"id":"F432908C063957F5"}
